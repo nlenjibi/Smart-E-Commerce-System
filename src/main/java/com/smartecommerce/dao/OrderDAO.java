@@ -1,4 +1,4 @@
-package com.smartecommerce.daos;
+package com.smartecommerce.dao;
 
 import com.smartcommerce.model.Order;
 import com.smartcommerce.utils.JdbcUtils.QueryResult;

@@ -1,4 +1,4 @@
-package com.smartecommerce.daos;
+package com.smartecommerce.dao;
 
 import com.smartcommerce.model.Cart;
 import com.smartcommerce.model.CartItem;
