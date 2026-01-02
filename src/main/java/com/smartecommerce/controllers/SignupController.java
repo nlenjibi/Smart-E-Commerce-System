@@ -1,10 +1,10 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.dao.UserDAO;
-import com.smartcommerce.model.User;
-import com.smartcommerce.utils.PasswordValidator;
-import com.smartcommerce.utils.SecurityUtils;
-import com.smartcommerce.utils.ValidationUtil;
+import com.smartecommerce.dao.UserDAO;
+import com.smartecommerce.models.User;
+import com.smartecommerce.utils.PasswordValidator;
+import com.smartecommerce.utils.SecurityUtils;
+import com.smartecommerce.utils.ValidationUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -139,7 +139,7 @@ public class SignupController {
         try {
             Stage stage = (Stage) btnSignup.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/smartcommerce/ui/views/login.fxml")
+                    getClass().getResource("/smartecommerce/ui/views/login.fxml")
             );
             Parent root = loader.load();
             stage.setScene(new Scene(root));

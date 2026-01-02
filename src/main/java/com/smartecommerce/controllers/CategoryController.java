@@ -1,9 +1,9 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.dao.CategoryDAO;
-import com.smartcommerce.model.Category;
-import com.smartcommerce.utils.UIUtils;
-import com.smartcommerce.utils.ValidationUtil;
+import com.smartecommerce.dao.CategoryDAO;
+import com.smartecommerce.models.Category;
+import com.smartecommerce.utils.UIUtils;
+import com.smartecommerce.utils.ValidationUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;

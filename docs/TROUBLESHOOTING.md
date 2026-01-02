@@ -380,7 +380,7 @@ Error: JavaFX runtime components are missing
 
 **Error Message:**
 ```
-java.lang.NullPointerException at com.smartcommerce...
+java.lang.NullPointerException at com.smartecommerce...
 ```
 
 **Solution:**
@@ -422,7 +422,7 @@ javafx.fxml.LoadException: Error loading FXML
 2. **Verify controller is specified:**
    ```xml
    <BorderPane xmlns:fx="http://javafx.com/fxml"
-               fx:controller="com.smartcommerce.controllers.LoginController">
+               fx:controller="com.smartecommerce.controllers.LoginController">
    ```
 
 3. **Ensure @FXML annotations:**

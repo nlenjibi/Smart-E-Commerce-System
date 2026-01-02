@@ -1,7 +1,7 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.app.SessionManager;
-import com.smartcommerce.model.User;
+import com.smartecommerce.app.SessionManager;
+import com.smartecommerce.models.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -114,7 +114,7 @@ public class TopbarController {
 
             // Redirect to login
             Stage stage = (Stage) btnToggleSidebar.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/login.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);

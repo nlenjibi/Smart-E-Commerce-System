@@ -1,18 +1,20 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.optimization.CacheDemo;
-import com.smartcommerce.optimization.SearchDemo;
-import com.smartcommerce.optimization.SortDemo;
-import com.smartcommerce.performance.PerformanceReport;
-import com.smartcommerce.performance.QueryTimer;
-import com.smartcommerce.service.ProductService;
-import com.smartcommerce.service.ReportService;
+import com.smartecommerce.optimization.CacheDemo;
+import com.smartecommerce.optimization.SearchDemo;
+import com.smartecommerce.optimization.SortDemo;
+import com.smartecommerce.performance.PerformanceReport;
+import com.smartecommerce.performance.QueryTimer;
+import com.smartecommerce.service.ProductService;
+import com.smartecommerce.service.ReportService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import java.util.Map;
+
+import static java.lang.IO.print;
 
 /**
  * AnaliticsController manages analytics panel and performance monitoring
@@ -34,8 +36,8 @@ public class AnaliticsController {
     @FXML private Button btnPerformanceMetrics;
     @FXML private Label lblStatus;
 
-    private ProductService productService;
-    private ReportService reportService;
+    private final ProductService productService;
+    private final ReportService reportService;
 
     public AnaliticsController() {
         this.productService = new ProductService();
@@ -59,7 +61,7 @@ public class AnaliticsController {
     private void handleCacheDemo() {
         appendToConsole("\nRunning Cache Demonstration...\n");
         try {
-            CacheDemo.demonstrateCaching();
+          appendToConsole(CacheDemo.demonstrateCaching());
             appendToConsole("✓ Cache demo completed successfully.\n");
             showStatus("Cache demo completed");
         } catch (Exception e) {
@@ -72,7 +74,7 @@ public class AnaliticsController {
     private void handleSearchDemo() {
         appendToConsole("\nRunning Search Demonstration...\n");
         try {
-            SearchDemo.demonstrateSearch();
+            appendToConsole(SearchDemo.demonstrateSearch());
             appendToConsole("✓ Search demo completed successfully.\n");
             showStatus("Search demo completed");
         } catch (Exception e) {
@@ -85,7 +87,7 @@ public class AnaliticsController {
     private void handleSortDemo() {
         appendToConsole("\nRunning Sort Demonstration...\n");
         try {
-            SortDemo.demonstrateSorting();
+            appendToConsole(SortDemo.demonstrateSorting());
             appendToConsole("✓ Sort demo completed successfully.\n");
             showStatus("Sort demo completed");
         } catch (Exception e) {
@@ -342,7 +344,7 @@ public class AnaliticsController {
         if (txtConsole != null) {
             txtConsole.appendText(text);
         }
-        System.out.print(text);
+        print(text);
     }
 
     private void showStatus(String message) {

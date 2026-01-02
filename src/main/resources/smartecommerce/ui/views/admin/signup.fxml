@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<?import java.lang.String?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.smartecommerce.controllers.SignupController"
+            prefHeight="456.0" prefWidth="380.0"
+            styleClass="signup-container"
+            stylesheets="@../../styles/common.css, @../../styles/signup.css">
+
+    <center>
+        <VBox spacing="10" alignment="CENTER" styleClass="padding-medium">
+
+            <!-- Logo/Title Section -->
+            <VBox spacing="4" alignment="CENTER">
+                <Label styleClass="signup-logo" text="🛒"/>
+                <Label styleClass="signup-title" text="Create Account">
+                    <font>
+                        <Font name="System Bold" size="18"/>
+                    </font>
+                </Label>
+                <Label styleClass="signup-subtitle" text="Join Smart E-Commerce System">
+                    <font>
+                        <Font size="9"/>
+                    </font>
+                </Label>
+            </VBox>
+
+            <!-- Signup Form -->
+            <VBox spacing="7" styleClass="signup-form">
+
+                <Label styleClass="signup-form-title" text="Sign Up"/>
+
+                <!-- Username Field -->
+                <VBox spacing="3">
+                    <Label styleClass="signup-field-label" text="Username *"/>
+                    <TextField fx:id="txtUsername" promptText="Choose a username"
+                               styleClass="signup-text-field"/>
+                    <Label fx:id="lblUsernameError" text="" styleClass="signup-error-label" visible="false"/>
+                </VBox>
+
+                <!-- Email Field -->
+                <VBox spacing="3">
+                    <Label styleClass="signup-field-label" text="Email Address *"/>
+                    <TextField fx:id="txtEmail" promptText="your.email@example.com"
+                               styleClass="signup-text-field"/>
+                    <Label fx:id="lblEmailError" text="" styleClass="signup-error-label" visible="false"/>
+                </VBox>
+
+                <!-- Password Field -->
+                <VBox spacing="3">
+                    <Label styleClass="signup-field-label" text="Password *"/>
+                    <PasswordField fx:id="txtPassword" promptText="At least 8 characters"
+                                   styleClass="signup-password-field"/>
+                    <Label fx:id="lblPasswordError" text="" styleClass="signup-error-label" visible="false"/>
+                </VBox>
+
+                <!-- Confirm Password Field -->
+                <VBox spacing="3">
+                    <Label styleClass="signup-field-label" text="Confirm Password *"/>
+                    <PasswordField fx:id="txtConfirmPassword" promptText="Re-enter password"
+                                   styleClass="signup-password-field"/>
+                    <Label fx:id="lblConfirmPasswordError" text="" styleClass="signup-error-label" visible="false"/>
+                </VBox>
+
+                <!-- Role Selection -->
+                <VBox spacing="3">
+                    <Label styleClass="signup-field-label" text="Account Type *"/>
+                    <ComboBox fx:id="cmbRole" promptText="Select account type"
+                              styleClass="signup-combobox" maxWidth="Infinity">
+                        <items>
+                            <javafx.collections.FXCollections fx:factory="observableArrayList">
+                                <String fx:value="CUSTOMER"/>
+                                <String fx:value="ADMIN"/>
+                            </javafx.collections.FXCollections>
+                        </items>
+                    </ComboBox>
+                </VBox>
+
+                <!-- Terms and Conditions -->
+                <CheckBox fx:id="chkTerms" text="I agree to the Terms and Conditions"
+                          styleClass="signup-checkbox"/>
+
+                <!-- Signup Button -->
+                <Button fx:id="btnSignup" text="Create Account" onAction="#handleSignup"
+                        maxWidth="Infinity" styleClass="signup-button"/>
+
+                <!-- Error/Success Message -->
+                <Label fx:id="lblMessage" text="" wrapText="true"
+                       textAlignment="CENTER" visible="false"/>
+
+                <Separator/>
+
+                <!-- Back to Login -->
+                <HBox spacing="5" alignment="CENTER">
+                    <Label styleClass="signup-signin-text" text="Already have an account?"/>
+                    <Hyperlink fx:id="linkLogin" text="Sign In" onAction="#handleBackToLogin"
+                               styleClass="signup-signin-link"/>
+                </HBox>
+            </VBox>
+
+            <!-- Password Requirements -->
+            <VBox spacing="3" alignment="CENTER" styleClass="signup-requirements">
+                <Label styleClass="signup-requirements-title" text="Password Requirements:"/>
+                <Label styleClass="signup-requirements-text" text="• At least 8 characters"/>
+                <Label styleClass="signup-requirements-text" text="• Contains uppercase and lowercase letters"/>
+                <Label styleClass="signup-requirements-text" text="• Contains at least one number"/>
+            </VBox>
+
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="signup-footer">
+            <Label styleClass="signup-footer-text" text="© 2024 Smart E-Commerce System | Secure Registration"/>
+        </HBox>
+    </bottom>
+</BorderPane>
+

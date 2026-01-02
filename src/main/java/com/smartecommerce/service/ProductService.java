@@ -1,11 +1,11 @@
 package com.smartecommerce.service;
 
-import com.smartcommerce.dao.ProductDAO;
-import com.smartcommerce.model.Product;
+import com.smartecommerce.dao.ProductDAO;
+import com.smartecommerce.models.Product;
 
 import java.util.*;
 
-import static com.smartcommerce.utils.AppUtils.*;
+import static com.smartecommerce.utils.AppUtils.*;
 
 /**
  * ProductService provides business logic for product operations

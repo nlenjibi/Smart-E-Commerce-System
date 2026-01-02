@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- 📊 4. Admin Dashboard Wireframe (Admin Only) -->
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefWidth="1000" prefHeight="600"
+
+            fx:controller="com.smartecommerce.controllers.DashboardController"
+            stylesheets="@../../styles/common.css, @../../styles/dashboard.css"
+            styleClass="admin-dashboard">
+
+
+    <!-- 📚 Sidebar Navigation -->
+    <left>
+        <fx:include source="sidebar.fxml" />
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <VBox styleClass="main-content-area">
+
+            <!-- 🔝 Top Bar -->
+            <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15">
+                <padding>
+                    <Insets top="15" right="20" bottom="15" left="20"/>
+                </padding>
+
+                <!-- Page Title -->
+                <Label fx:id="pageTitle" text="Dashboard Overview" styleClass="page-title"/>
+
+                <!-- Spacer -->
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- Admin Info -->
+                <VBox alignment="CENTER_RIGHT">
+                    <Label fx:id="adminNameLabel" text="Admin User" styleClass="admin-name"/>
+                    <Label fx:id="adminRoleLabel" text="Role: Administrator" styleClass="admin-role"/>
+                </VBox>
+            </HBox>
+
+            <!-- 🧩 Main Dashboard Content -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="content-scroll">
+                <VBox fx:id="contentVBox" styleClass="dashboard-content" spacing="30">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <!-- Summary Cards -->
+                    <HBox fx:id="summaryCards" styleClass="summary-cards" spacing="20">
+
+                        <!-- Orders Card -->
+                        <VBox styleClass="summary-card" spacing="10" HBox.hgrow="ALWAYS">
+                            <padding>
+                                <Insets top="20" right="20" bottom="20" left="20"/>
+                            </padding>
+                            <Label text="📦" styleClass="card-icon"/>
+                            <Label text="Total Orders" styleClass="card-title"/>
+                            <Label fx:id="ordersValue" text="0" styleClass="card-value"/>
+                            <Label text="+12% from last month" styleClass="card-subtitle"/>
+                        </VBox>
+
+                        <!-- Revenue Card -->
+                        <VBox styleClass="summary-card" spacing="10" HBox.hgrow="ALWAYS">
+                            <padding>
+                                <Insets top="20" right="20" bottom="20" left="20"/>
+                            </padding>
+                            <Label text="💰" styleClass="card-icon"/>
+                            <Label text="Total Revenue" styleClass="card-title"/>
+                            <Label fx:id="revenueValue" text="4" styleClass="card-value"/>
+                            <Label text="+8% from last month" styleClass="card-subtitle"/>
+                        </VBox>
+
+                        <!-- Products Card -->
+                        <VBox styleClass="summary-card" spacing="10" HBox.hgrow="ALWAYS">
+                            <padding>
+                                <Insets top="20" right="20" bottom="20" left="20"/>
+                            </padding>
+                            <Label text="🛍️" styleClass="card-icon"/>
+                            <Label text="Total Products" styleClass="card-title"/>
+                            <Label fx:id="productsValue" text="0" styleClass="card-value"/>
+                            <Label text="12 out of stock" styleClass="card-subtitle"/>
+                        </VBox>
+
+                        <!-- Users Card -->
+                        <VBox styleClass="summary-card" spacing="10" HBox.hgrow="ALWAYS">
+                            <padding>
+                                <Insets top="20" right="20" bottom="20" left="20"/>
+                            </padding>
+                            <Label text="👥" styleClass="card-icon"/>
+                            <Label text="Total Users" styleClass="card-title"/>
+                            <Label fx:id="usersValue" text="0" styleClass="card-value"/>
+                            <Label text="+5 new this week" styleClass="card-subtitle"/>
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- Charts Section -->
+                    <VBox styleClass="charts-section" spacing="20">
+
+                        <Label text="📊 Analytics Overview" styleClass="section-title"/>
+
+                        <!-- Charts Grid - Two columns -->
+                        <HBox spacing="20">
+                            <!-- Sales Revenue Chart -->
+                            <VBox styleClass="chart-container" HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets top="20" right="20" bottom="20" left="20"/>
+                                </padding>
+                                <Label text="💰 Sales Revenue Trend" styleClass="chart-title"/>
+                                <StackPane fx:id="salesChartContainer" styleClass="chart-pane" prefHeight="300" VBox.vgrow="ALWAYS">
+                                    <!-- Chart will be added programmatically -->
+                                </StackPane>
+                            </VBox>
+
+                            <!-- Orders Distribution Chart -->
+                            <VBox styleClass="chart-container" HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets top="20" right="20" bottom="20" left="20"/>
+                                </padding>
+                                <Label text="📦 Orders by Status" styleClass="chart-title"/>
+                                <StackPane fx:id="ordersChartContainer" styleClass="chart-pane" prefHeight="300" VBox.vgrow="ALWAYS">
+                                    <!-- Chart will be added programmatically -->
+                                </StackPane>
+                            </VBox>
+                        </HBox>
+
+                        <!-- Additional Charts Row -->
+                        <HBox spacing="20">
+                            <!-- Product Categories Chart -->
+                            <VBox styleClass="chart-container" HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets top="20" right="20" bottom="20" left="20"/>
+                                </padding>
+                                <Label text="🛍️ Top Product Categories" styleClass="chart-title"/>
+                                <StackPane fx:id="categoriesChartContainer" styleClass="chart-pane" prefHeight="300" VBox.vgrow="ALWAYS">
+                                    <!-- Chart will be added programmatically -->
+                                </StackPane>
+                            </VBox>
+
+                            <!-- Recent Activity Chart -->
+                            <VBox styleClass="chart-container" HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets top="20" right="20" bottom="20" left="20"/>
+                                </padding>
+                                <Label text="📈 User Growth" styleClass="chart-title"/>
+                                <StackPane fx:id="userGrowthChartContainer" styleClass="chart-pane" prefHeight="300" VBox.vgrow="ALWAYS">
+                                    <!-- Chart will be added programmatically -->
+                                </StackPane>
+                            </VBox>
+                        </HBox>
+
+                        <!-- Quick Insight -->
+                        <HBox styleClass="insight-box" spacing="10" alignment="CENTER_LEFT">
+                            <padding>
+                                <Insets top="15" right="20" bottom="15" left="20"/>
+                            </padding>
+                            <Label text="💡" styleClass="insight-icon"/>
+                            <Label fx:id="quickInsight" text="Loading insights..." styleClass="insight-text" wrapText="true" HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                    </VBox>
+
+                </VBox>
+            </ScrollPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>

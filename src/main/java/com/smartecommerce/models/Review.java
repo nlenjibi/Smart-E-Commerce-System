@@ -2,7 +2,7 @@ package com.smartecommerce.models;
 
 import java.time.LocalDateTime;
 
-import static com.smartcommerce.utils.ValidationUtil.validateRating;
+import static com.smartecommerce.utils.ValidationUtil.validateRating;
 
 /**
  * Review entity for product reviews and ratings

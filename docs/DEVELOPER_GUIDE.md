@@ -170,9 +170,9 @@
 ### Design Patterns Used
 
 #### 1. Model-View-Controller (MVC)
-- **Model**: `com.smartcommerce.model.*`
+- **Model**: `com.smartecommerce.models.*`
 - **View**: FXML files in `resources/com/smartcommerce/ui/views/`
-- **Controller**: `com.smartcommerce.controllers.*`
+- **Controller**: `com.smartecommerce.controllers.*`
 
 #### 2. Data Access Object (DAO)
 ```java
@@ -252,7 +252,7 @@ public class CartItem {
 ### Package Organization
 
 ```
-com.smartcommerce/
+com.smartecommerce/
 ├── app/                    # Application entry points
 │   ├── SmartEcommerceApp.java
 │   └── ConsoleDemo.java
@@ -317,7 +317,7 @@ com.smartcommerce/
 
 Example: **Product.java**
 ```java
-package com.smartcommerce.model;
+package com.smartecommerce.models;
 
 import java.time.LocalDateTime;
 
@@ -372,10 +372,10 @@ public class Product {
 
 Example: **ProductDAO.java**
 ```java
-package com.smartcommerce.dao;
+package com.smartecommerce.dao;
 
-import com.smartcommerce.model.Product;
-import com.smartcommerce.utils.JdbcUtils;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.utils.JdbcUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -500,10 +500,10 @@ public class ProductDAO {
 
 Example: **ProductService.java**
 ```java
-package com.smartcommerce.service;
+package com.smartecommerce.service;
 
-import com.smartcommerce.dao.ProductDAO;
-import com.smartcommerce.model.Product;
+import com.smartecommerce.dao.ProductDAO;
+import com.smartecommerce.models.Product;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -585,11 +585,11 @@ public class ProductService {
 
 Example: **ProductsController.java**
 ```java
-package com.smartcommerce.controllers;
+package com.smartecommerce.controllers;
 
-import com.smartcommerce.model.Product;
-import com.smartcommerce.service.ProductService;
-import com.smartcommerce.utils.UIUtils;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.service.ProductService;
+import com.smartecommerce.utils.UIUtils;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -816,8 +816,8 @@ open target/site/jacoco/index.html
 ```java
 package com.ecommerce;
 
-import com.smartcommerce.model.Product;
-import com.smartcommerce.service.ProductService;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.service.ProductService;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -881,7 +881,7 @@ class ProductServiceTest {
    - Classes: PascalCase (`ProductService`)
    - Methods: camelCase (`getProductById()`)
    - Constants: UPPER_SNAKE_CASE (`MAX_CACHE_SIZE`)
-   - Packages: lowercase (`com.smartcommerce.service`)
+   - Packages: lowercase (`com.smartecommerce.service`)
 
 2. **Formatting**
    - Indent: 4 spaces

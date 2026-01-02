@@ -410,7 +410,7 @@ source ~/.bashrc
 Access configuration in Java code:
 
 ```java
-import com.smartcommerce.config.ConfigManager;
+import com.smartecommerce.config.ConfigManager;
 
 ConfigManager config = ConfigManager.getInstance();
 

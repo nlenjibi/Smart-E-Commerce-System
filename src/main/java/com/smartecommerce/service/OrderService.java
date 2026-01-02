@@ -1,13 +1,13 @@
 package com.smartecommerce.service;
 
-import com.smartcommerce.dao.OrderDAO;
-import com.smartcommerce.model.Order;
+import com.smartecommerce.dao.OrderDAO;
+import com.smartecommerce.models.Order;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.smartcommerce.utils.AppUtils.*;
+import static com.smartecommerce.utils.AppUtils.*;
 
 /**
  * OrderService provides business logic for order operations

@@ -1,10 +1,10 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.app.SessionManager;
-import com.smartcommerce.dao.UserDAO;
-import com.smartcommerce.model.Order;
-import com.smartcommerce.model.User;
-import com.smartcommerce.service.OrderService;
+import com.smartecommerce.app.SessionManager;
+import com.smartecommerce.dao.UserDAO;
+import com.smartecommerce.models.Order;
+import com.smartecommerce.models.User;
+import com.smartecommerce.service.OrderService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -301,7 +301,7 @@ public class CustomerDashboardController {
         try {
             // Navigate to landing page WITHOUT destroying session
             Stage stage = (Stage) btnHome.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/landing.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/landing.fxml"));
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.setTitle("Smart E-Commerce System");
@@ -330,21 +330,22 @@ public class CustomerDashboardController {
 
     @FXML
     private void handleLogout() {
-        // Log the logout action
         String username = currentUser != null ? currentUser.getUsername() : "unknown";
         LOGGER.info("User logging out: " + username);
 
-        // Destroy the session
+        // Clear session
         SessionManager.logout();
 
-        // Redirect to landing page (not login)
+        // Redirect to landing page
         try {
-            Stage stage = (Stage) btnLogout.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/landing.fxml"));
-            Parent root = loader.load();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Smart E-Commerce System");
-            LOGGER.info("User logged out successfully, redirected to landing page");
+            Stage stage = btnLogout != null ? (Stage) btnLogout.getScene().getWindow() : null;
+            if (stage != null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/landing.fxml"));
+                Parent root = loader.load();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Smart E-Commerce System - Home");
+                LOGGER.info("User logged out successfully, redirected to landing page");
+            }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load landing page after logout", e);
         }
@@ -398,7 +399,7 @@ public class CustomerDashboardController {
         try {
             Stage stage = (Stage) (btnLogout != null ? btnLogout.getScene().getWindow() : null);
             if (stage != null) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/login.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/login.fxml"));
                 Parent root = loader.load();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Login - Smart E-Commerce System");

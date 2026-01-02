@@ -1,7 +1,7 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.model.Order;
-import com.smartcommerce.service.OrderService;
+import com.smartecommerce.models.Order;
+import com.smartecommerce.service.OrderService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,7 +37,7 @@ public class OrdersController extends BaseController implements Initializable {
 
     // Order status constants
     private static final String STATUS_PENDING = "PENDING";
-    private static final String STATUS_COMPLETED = "COMPLETED";
+    private static final String STATUS_COMPLETED = "DELIVERED";
     private static final String STATUS_CANCELLED = "CANCELLED";
 
     @FXML private Label totalOrdersLabel;
@@ -297,7 +297,7 @@ public class OrdersController extends BaseController implements Initializable {
         LOGGER.info("Updating status for order: " + order.getOrderId());
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>(STATUS_PENDING,
-                STATUS_PENDING, "PROCESSING", STATUS_COMPLETED, STATUS_CANCELLED);
+                STATUS_PENDING, "CONFIRMED", STATUS_COMPLETED, STATUS_CANCELLED);
         dialog.setTitle("Update Order Status");
         dialog.setHeaderText("Order #" + order.getOrderId());
         dialog.setContentText("Select new status:");
@@ -362,4 +362,3 @@ public class OrdersController extends BaseController implements Initializable {
         alert.showAndWait();
     }
 }
-

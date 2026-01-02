@@ -1,11 +1,11 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.app.SessionManager;
-import com.smartcommerce.dao.UserDAO;
-import com.smartcommerce.model.User;
-import com.smartcommerce.utils.SecurityUtils;
-import com.smartcommerce.utils.UIUtils;
-import com.smartcommerce.utils.ValidationUtil;
+import com.smartecommerce.app.SessionManager;
+import com.smartecommerce.dao.UserDAO;
+import com.smartecommerce.models.User;
+import com.smartecommerce.utils.SecurityUtils;
+import com.smartecommerce.utils.UIUtils;
+import com.smartecommerce.utils.ValidationUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import static com.smartcommerce.utils.AppUtils.println;
+import static com.smartecommerce.utils.AppUtils.println;
 
 /**
  * LoginController handles user authentication with enhanced security
@@ -108,7 +108,7 @@ public class LoginController {
             // Get stage from the signup link that was clicked
             Stage stage = (Stage) linkSignup.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/smartcommerce/ui/views/admin/signup.fxml")
+                    getClass().getResource("/smartecommerce/ui/views/admin/signup.fxml")
             );
             Parent root = loader.load();
             stage.setScene(new Scene(root));
@@ -129,12 +129,12 @@ public class LoginController {
             String viewTitle;
 
             if ("ADMIN".equalsIgnoreCase(user.getRole())) {
-                viewPath = "/com/smartcommerce/ui/views/admin/dashboard.fxml";
+                viewPath = "/smartecommerce/ui/views/admin/dashboard.fxml";
                 viewTitle = "Smart E-Commerce System - Admin Panel";
             } else {
                 // Non-admin users (customers) should be redirected to the public landing or customer dashboard
                 // Use the customer dashboard for authenticated users; landing.fxml is still the public home page.
-                viewPath = "/com/smartcommerce/ui/views/custormer/customer_dashboard.fxml";
+                viewPath = "/smartecommerce/ui/views/custormer/customer_dashboard.fxml";
                 viewTitle = "Smart E-Commerce System - My Dashboard";
             }
 
@@ -170,4 +170,3 @@ public class LoginController {
         }
     }
 }
-

@@ -1,14 +1,14 @@
 package com.smartecommerce.dao;
 
-import com.smartcommerce.model.Review;
-import com.smartcommerce.utils.JdbcUtils.QueryResult;
+import com.smartecommerce.models.Review;
+import com.smartecommerce.utils.JdbcUtils.QueryResult;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.smartcommerce.utils.AppUtils.*;
-import static com.smartcommerce.utils.JdbcUtils.executePreparedQuery;
+import static com.smartecommerce.utils.AppUtils.*;
+import static com.smartecommerce.utils.JdbcUtils.executePreparedQuery;
 
 /**
  * ReviewDAO handles all database operations for Review entity

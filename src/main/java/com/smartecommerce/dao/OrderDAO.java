@@ -1,14 +1,14 @@
 package com.smartecommerce.dao;
 
-import com.smartcommerce.model.Order;
-import com.smartcommerce.utils.JdbcUtils.QueryResult;
+import com.smartecommerce.models.Order;
+import com.smartecommerce.utils.JdbcUtils.QueryResult;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.smartcommerce.utils.AppUtils.*;
-import static com.smartcommerce.utils.JdbcUtils.executePreparedQuery;
+import static com.smartecommerce.utils.AppUtils.*;
+import static com.smartecommerce.utils.JdbcUtils.executePreparedQuery;
 
 /**
  * OrderDAO handles all database operations for Order entity

@@ -1,6 +1,6 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.app.SessionManager;
+import com.smartecommerce.app.SessionManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -61,7 +61,7 @@ public class SidebarController {
         LOGGER.info("Navigating to Dashboard");
         try {
             Stage stage = (Stage) navDashboard.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/admin/dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/admin/dashboard.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -78,7 +78,7 @@ public class SidebarController {
         try {
             // Navigate to landing WITHOUT destroying session
             Stage stage = (Stage) navHome.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/landing.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/landing.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -100,7 +100,7 @@ public class SidebarController {
         LOGGER.info("Navigating to Orders");
         try {
             Stage stage = (Stage) navOrders.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/admin/orders.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/admin/orders.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -116,7 +116,7 @@ public class SidebarController {
         LOGGER.info("Navigating to Categories");
         try {
             Stage stage = (Stage) navCategories.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/admin/categories.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/admin/categories.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -132,7 +132,7 @@ public class SidebarController {
         LOGGER.info("Navigating to Products");
         try {
             Stage stage = (Stage) navProducts.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/admin/products.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/admin/products.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -148,7 +148,7 @@ public class SidebarController {
         LOGGER.info("Navigating to Users");
         try {
             Stage stage = (Stage) navUsers.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/admin/users.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/admin/users.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -164,7 +164,7 @@ public class SidebarController {
         LOGGER.info("Navigating to Analytics");
         try {
             Stage stage = (Stage) navAnalytics.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/admin/analitics.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/admin/analitics.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -200,7 +200,7 @@ public class SidebarController {
 
             // Redirect to landing page (not login)
             Stage stage = (Stage) btnLogout.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/landing.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/landing.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);

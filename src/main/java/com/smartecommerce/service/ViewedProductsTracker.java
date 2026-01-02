@@ -1,6 +1,6 @@
 package com.smartecommerce.service;
 
-import com.smartcommerce.model.Product;
+import com.smartecommerce.models.Product;
 
 import java.util.*;
 import java.util.logging.Logger;

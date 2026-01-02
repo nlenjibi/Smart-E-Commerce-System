@@ -1,10 +1,10 @@
 package com.smartecommerce.service;
 
-import com.smartcommerce.dao.OrderDAO;
-import com.smartcommerce.dao.ProductDAO;
-import com.smartcommerce.dao.UserDAO;
-import com.smartcommerce.model.Product;
-import com.smartcommerce.model.User;
+import com.smartecommerce.dao.OrderDAO;
+import com.smartecommerce.dao.ProductDAO;
+import com.smartecommerce.dao.UserDAO;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.models.User;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.smartcommerce.utils.AppUtils.*;
+import static com.smartecommerce.utils.AppUtils.*;
 
 /**
  * ReportService generates various reports and analytics

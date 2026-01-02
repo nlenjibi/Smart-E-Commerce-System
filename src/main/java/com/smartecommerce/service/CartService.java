@@ -1,7 +1,7 @@
 package com.smartecommerce.service;
 
-import com.smartcommerce.model.CartItem;
-import com.smartcommerce.model.Product;
+import com.smartecommerce.models.CartItem;
+import com.smartecommerce.models.Product;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -11,8 +11,8 @@ import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Consumer;
 
-import static com.smartcommerce.utils.AppUtils.printE;
-import static com.smartcommerce.utils.AppUtils.println;
+import static com.smartecommerce.utils.AppUtils.printE;
+import static com.smartecommerce.utils.AppUtils.println;
 
 /**
  * CartService manages shopping cart operations

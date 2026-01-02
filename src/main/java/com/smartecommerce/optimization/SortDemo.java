@@ -1,70 +1,78 @@
 package com.smartecommerce.optimization;
 
-import com.smartcommerce.model.Product;
-import com.smartcommerce.service.ProductService;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.service.ProductService;
 
 import java.util.List;
 
-import static com.smartcommerce.utils.AppUtils.printf;
-import static com.smartcommerce.utils.AppUtils.println;
+import static com.smartecommerce.utils.AppUtils.printf;
+import static com.smartecommerce.utils.AppUtils.println;
+import static java.lang.IO.print;
 
 /**
  * SortDemo demonstrates different sorting algorithms and their performance
  */
 public class SortDemo {
 
-    public static void demonstrateSorting() {
-        println("\n" + "=".repeat(60));
-        println("SORTING ALGORITHMS DEMONSTRATION");
-        println("=".repeat(60));
+    public static String demonstrateSorting() {
+        final String NL = System.lineSeparator();
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(NL).append("=".repeat(60)).append(NL)
+          .append("SORTING ALGORITHMS DEMONSTRATION").append(NL)
+          .append("=".repeat(60)).append(NL);
 
         ProductService productService = new ProductService();
         List<Product> products = productService.getAllProducts();
 
-        println("Dataset size: " + products.size() + " products\n");
+        sb.append("Dataset size: ").append(products.size()).append(" products").append(NL).append(NL);
 
         // QuickSort by Name
-        println("1. QuickSort (by Product Name):");
+        sb.append("1. QuickSort (by Product Name):").append(NL);
         long start1 = System.nanoTime();
         List<Product> sortedByName = productService.sortProductsByName(products, true);
         long time1 = System.nanoTime() - start1;
-        printf("   Execution time: %.3f ms\n", time1 / 1_000_000.0);
-        println("   First 3 products:");
+        sb.append(String.format("Execution time: %.3f ms", time1 / 1_000_000.0)).append(NL);
+        sb.append("First 3 products:").append(NL);
         for (int i = 0; i < Math.min(3, sortedByName.size()); i++) {
-           println("      " + (i + 1) + ". " + sortedByName.get(i).getProductName());
+            sb.append("      ").append(i + 1).append(". ")
+              .append(sortedByName.get(i).getProductName()).append(NL);
         }
 
         // MergeSort by Price
-        println("\n2. MergeSort (by Price - Ascending):");
+        sb.append(NL).append("2. MergeSort (by Price - Ascending):").append(NL);
         long start2 = System.nanoTime();
         List<Product> sortedByPrice = productService.sortProductsByPrice(products, true);
         long time2 = System.nanoTime() - start2;
-        printf("   Execution time: %.3f ms\n", time2 / 1_000_000.0);
-        println("   First 3 products:");
+        sb.append(String.format("   Execution time: %.3f ms", time2 / 1_000_000.0)).append(NL);
+        sb.append("   First 3 products:").append(NL);
         for (int i = 0; i < Math.min(3, sortedByPrice.size()); i++) {
             Product p = sortedByPrice.get(i);
-            printf("      %d. %s - $%.2f\n",
-                i + 1, p.getProductName(), p.getPrice());
+            sb.append(String.format("      %d. %s - $%.2f", i + 1, p.getProductName(), p.getPrice()))
+              .append(NL);
         }
 
         // MergeSort by Price (Descending)
-       println("\n3. MergeSort (by Price - Descending):");
+        sb.append(NL).append("3. MergeSort (by Price - Descending):").append(NL);
         long start3 = System.nanoTime();
         List<Product> sortedByPriceDesc = productService.sortProductsByPrice(products, false);
         long time3 = System.nanoTime() - start3;
-        printf("   Execution time: %.3f ms\n", time3 / 1_000_000.0);
-        println("   First 3 products:");
+        sb.append(String.format("   Execution time: %.3f ms", time3 / 1_000_000.0)).append(NL);
+        sb.append("   First 3 products:").append(NL);
         for (int i = 0; i < Math.min(3, sortedByPriceDesc.size()); i++) {
             Product p = sortedByPriceDesc.get(i);
-            printf("      %d. %s - $%.2f\n",
-                i + 1, p.getProductName(), p.getPrice());
+            sb.append(String.format("      %d. %s - $%.2f", i + 1, p.getProductName(), p.getPrice()))
+              .append(NL);
         }
 
-        println("\nAlgorithm Analysis:");
-        println("• QuickSort:  Average O(n log n), Worst O(n²)");
-        println("• MergeSort:  Guaranteed O(n log n), Stable sort");
-        println("• Use case:   QuickSort for general sorting, MergeSort when stability matters");
-        println("=".repeat(60) + "\n");
+        sb.append(NL).append("Algorithm Analysis:").append(NL)
+          .append("• QuickSort:  Average O(n log n), Worst O(n²)").append(NL)
+          .append("• MergeSort:  Guaranteed O(n log n), Stable sort").append(NL)
+          .append("• Use case:   QuickSort for general sorting, MergeSort when stability matters")
+          .append(NL).append("=".repeat(60)).append(NL);
+
+        String output = sb.toString();
+        print(output);
+        return output;
     }
 }
-

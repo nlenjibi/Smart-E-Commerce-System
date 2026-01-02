@@ -452,7 +452,7 @@ See [Contributing Guidelines](CONTRIBUTING.md).
 
 ### Where should I add business logic?
 
-Business logic goes in the **Service Layer** (`com.smartcommerce.service`), not in controllers or DAOs.
+Business logic goes in the **Service Layer** (`com.smartecommerce.service`), not in controllers or DAOs.
 
 **Example:**
 ```java
@@ -470,8 +470,8 @@ public List<Product> getInStockProducts() {
 ### How do I add a new database table?
 
 1. Add table to `database/schema.sql`
-2. Create model class in `com.smartcommerce.model`
-3. Create DAO in `com.smartcommerce.dao`
+2. Create model class in `com.smartecommerce.models`
+3. Create DAO in `com.smartecommerce.dao`
 4. Create service if needed
 5. Update documentation
 
@@ -479,7 +479,7 @@ public List<Product> getInStockProducts() {
 
 1. Create FXML file in `resources/com/smartcommerce/ui/views/`
 2. Create CSS file in `resources/com/smartcommerce/ui/styles/`
-3. Create controller in `com.smartcommerce.controllers`
+3. Create controller in `com.smartecommerce.controllers`
 4. Add navigation from existing views
 
 ### Can I contribute to the project?

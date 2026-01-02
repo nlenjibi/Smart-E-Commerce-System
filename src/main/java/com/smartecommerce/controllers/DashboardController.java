@@ -1,13 +1,13 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.app.SessionManager;
-import com.smartcommerce.dao.UserDAO;
-import com.smartcommerce.model.Order;
-import com.smartcommerce.model.Product;
-import com.smartcommerce.model.User;
-import com.smartcommerce.service.OrderService;
-import com.smartcommerce.service.ProductService;
-import com.smartcommerce.utils.AsyncTaskManager;
+import com.smartecommerce.app.SessionManager;
+import com.smartecommerce.dao.UserDAO;
+import com.smartecommerce.models.Order;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.models.User;
+import com.smartecommerce.service.OrderService;
+import com.smartecommerce.service.ProductService;
+import com.smartecommerce.utils.AsyncTaskManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,7 +56,7 @@ public class DashboardController extends BaseController implements Initializable
     private static final String FX_CONTROLLER = "fxController";
     private static final String SIDEBAR_COLLAPSED = "sidebar-collapsed";
     private static final String DARK_MODE = "dark-mode";
-    private static final String ADMIN_PATH= "/com/smartcommerce/ui/views/custormer/customer_dashboard.fxml";
+    private static final String ADMIN_PATH= "/smartecommerce/ui/views/custormer/customer_dashboard.fxml";
 
     @FXML public BorderPane root;
     @FXML public StackPane mainStack;
@@ -288,7 +288,7 @@ public class DashboardController extends BaseController implements Initializable
                 title = "Smart E-Commerce System - My Dashboard";
             } else {
                 // Redirect to login
-                viewPath = "/com/smartcommerce/ui/views/login.fxml";
+                viewPath = "/smartecommerce/ui/views/login.fxml";
                 title = "Smart E-Commerce System - Login";
             }
 
@@ -318,7 +318,7 @@ public class DashboardController extends BaseController implements Initializable
         try {
             // Reload the entire dashboard scene
             Stage stage = (Stage) root.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/admin/dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/admin/dashboard.fxml"));
             Parent dashboardRoot = loader.load();
             Scene scene = new Scene(dashboardRoot);
             stage.setScene(scene);
@@ -496,7 +496,7 @@ public class DashboardController extends BaseController implements Initializable
             contentVBox.getChildren().clear();
         }
         // Load the simple products view (working version)
-        loadCenterView("/com/smartcommerce/ui/views/admin/products-simple.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/products-simple.fxml");
         updatePageTitle("Product Management");
     }
 
@@ -506,7 +506,7 @@ public class DashboardController extends BaseController implements Initializable
     @FXML
     private void handleViewOrders() {
         LOGGER.info("View Orders button clicked");
-        loadCenterView("/com/smartcommerce/ui/views/admin/orders.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/orders.fxml");
         updatePageTitle("Order Management");
     }
 
@@ -516,7 +516,7 @@ public class DashboardController extends BaseController implements Initializable
     @FXML
     private void handleViewAnalytics() {
         LOGGER.info("View Analytics button clicked");
-        loadCenterView("/com/smartcommerce/ui/views/admin/analytics-simple.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/analytics-simple.fxml");
         updatePageTitle("Analytics & Performance");
     }
 
@@ -526,7 +526,7 @@ public class DashboardController extends BaseController implements Initializable
     @FXML
     private void handleViewAll() {
         LOGGER.info("View All button clicked");
-        loadCenterView("/com/smartcommerce/ui/views/admin/orders.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/orders.fxml");
         updatePageTitle("All Recent Activity");
     }
 
@@ -536,7 +536,7 @@ public class DashboardController extends BaseController implements Initializable
     @FXML
     private void handleOrdersCardClick() {
         LOGGER.info("Orders stat card clicked");
-        loadCenterView("/com/smartcommerce/ui/views/admin/orders.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/orders.fxml");
         updatePageTitle("Order Management");
     }
 
@@ -546,7 +546,7 @@ public class DashboardController extends BaseController implements Initializable
     @FXML
     private void handleRevenueCardClick() {
         LOGGER.info("Revenue stat card clicked");
-        loadCenterView("/com/smartcommerce/ui/views/admin/analytics-simple.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/analytics-simple.fxml");
         updatePageTitle("Revenue Analytics");
     }
 
@@ -561,7 +561,7 @@ public class DashboardController extends BaseController implements Initializable
             contentVBox.getChildren().clear();
         }
         // Load the simple products view (working version)
-        loadCenterView("/com/smartcommerce/ui/views/admin/products-simple.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/products-simple.fxml");
         updatePageTitle("Product Management");
     }
 
@@ -571,7 +571,7 @@ public class DashboardController extends BaseController implements Initializable
     @FXML
     private void handleUsersCardClick() {
         LOGGER.info("Users stat card clicked");
-        loadCenterView("/com/smartcommerce/ui/views/admin/users.fxml");
+        loadCenterView("/smartecommerce/ui/views/admin/users.fxml");
         updatePageTitle("User Management");
     }
 

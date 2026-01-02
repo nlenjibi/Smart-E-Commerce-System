@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import java.sql.*;
 import java.util.*;
 
-import static com.smartcommerce.config.DatabaseConfig.getConnectionWithProps;
-import static com.smartcommerce.utils.AppUtils.*;
+import static com.smartecommerce.config.DatabaseConfig.getConnectionWithProps;
+import static com.smartecommerce.utils.AppUtils.*;
 
 /**
  * JdbcUtils provides utility methods for JDBC operations

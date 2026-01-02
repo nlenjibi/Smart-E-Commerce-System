@@ -1,10 +1,10 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.app.SessionManager;
-import com.smartcommerce.model.CartItem;
-import com.smartcommerce.model.Order;
-import com.smartcommerce.service.CartService;
-import com.smartcommerce.service.OrderService;
+import com.smartecommerce.app.SessionManager;
+import com.smartecommerce.models.CartItem;
+import com.smartecommerce.models.Order;
+import com.smartecommerce.service.CartService;
+import com.smartecommerce.service.OrderService;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
@@ -36,26 +36,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * CartController - Optimized controller for the shopping cart.
- *
- * OPTIMIZATIONS:
- * - UI caching to prevent full reloads on quantity changes
- * - Async operations for better responsiveness
- * - Memory-efficient event handling
- * - Smooth animations for better UX
- * - Debouncing for rapid clicks
- * - Configurable tax rate
- * - Better error handling
- *
- * Responsibilities:
- * - Display cart items dynamically from CartService
- * - Handle quantity updates (increment/decrement) with optimized rendering
- * - Remove items from cart with animations
- * - Calculate totals (subtotal, tax, total)
- * - Navigate to checkout or back to landing page
- * - Clear cart functionality
- */
 public class CartController {
 
     private static final Logger LOGGER = Logger.getLogger(CartController.class.getName());
@@ -832,7 +812,7 @@ public class CartController {
             LOGGER.info("Navigating to landing page");
 
             // Load landing page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/landing.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/landing.fxml"));
             Parent landingView = loader.load();
 
             // Get current stage
@@ -881,7 +861,7 @@ public class CartController {
             LOGGER.info("Navigating to login page");
 
             // Load login page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/login.fxml"));
             Parent loginView = loader.load();
 
             // Get current stage

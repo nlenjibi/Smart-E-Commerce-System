@@ -1,57 +1,66 @@
 package com.smartecommerce.optimization;
 
-import com.smartcommerce.model.Product;
-import com.smartcommerce.service.ProductService;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.service.ProductService;
 
 import java.util.List;
+
+import static com.smartecommerce.utils.AppUtils.printf;
+import static com.smartecommerce.utils.AppUtils.println;
+import static java.lang.IO.print;
 
 /**
  * SearchDemo demonstrates different search approaches and their performance
  */
 public class SearchDemo {
 
-    public static void demonstrateSearch() {
-        System.out.println("\n" + "=".repeat(60));
-        System.out.println("SEARCH ALGORITHMS DEMONSTRATION");
-        System.out.println("=".repeat(60));
+    public static String demonstrateSearch() {
+        final String NL = System.lineSeparator();
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(NL)
+          .append("=".repeat(60)).append(NL)
+          .append("SEARCH ALGORITHMS DEMONSTRATION").append(NL)
+          .append("=".repeat(60)).append(NL);
 
         ProductService productService = new ProductService();
         List<Product> products = productService.getAllProducts();
 
-        System.out.println("Total products in database: " + products.size());
+        sb.append("Total products in database: ").append(products.size()).append(NL);
 
-        // Linear Search (database LIKE query)
-        System.out.println("\n1. Database Search (Linear - LIKE operator):");
+        sb.append(NL).append("1. Database Search (Linear - LIKE operator):").append(NL);
         String[] searchTerms = {"laptop", "phone", "book", "shoes"};
 
         for (String term : searchTerms) {
             long start = System.nanoTime();
             List<Product> results = productService.searchProducts(term);
-            long duration = System.nanoTime() - start;
-            System.out.printf("   '%s': %d results in %.3f ms\n",
-                term, results.size(), duration / 1_000_000.0);
+            long durationNs = System.nanoTime() - start;
+            sb.append(String.format("   '%s': %d results in %.3f ms", term, results.size(), durationNs / 1_000_000.0))
+              .append(NL);
         }
 
-        // Binary Search (requires sorted list)
-        System.out.println("\n2. Binary Search (by Product ID):");
+        sb.append(NL).append("2. Binary Search (by Product ID):").append(NL);
         int[] searchIds = {1, 5, 10, 15, 25};
 
         for (int id : searchIds) {
             long start = System.nanoTime();
             Product result = productService.binarySearchById(products, id);
-            long duration = System.nanoTime() - start;
-            System.out.printf("   ID %d: %s in %.3f ms\n",
-                id,
+            long durationNs = System.nanoTime() - start;
+            sb.append(String.format("   ID %d: %s in %.3f ms", id,
                 result != null ? "Found" : "Not found",
-                duration / 1_000_000.0);
+                durationNs / 1_000_000.0)).append(NL);
         }
 
-        System.out.println("\nComplexity Analysis:");
-        System.out.println("• Linear Search (LIKE):  O(n) - checks every record");
-        System.out.println("• Binary Search:         O(log n) - requires sorted data");
-        System.out.println("• Hash-based (Cache):    O(1) - direct lookup");
-        System.out.println("\nOptimization: Use database indexes for frequently searched columns");
-        System.out.println("=".repeat(60) + "\n");
+        sb.append(NL).append("Complexity Analysis:").append(NL)
+          .append("• Linear Search (LIKE):  O(n) - checks every record").append(NL)
+          .append("• Binary Search:         O(log n) - requires sorted data").append(NL)
+          .append("• Hash-based (Cache):    O(1) - direct lookup").append(NL)
+          .append(NL)
+          .append("Optimization: Use database indexes for frequently searched columns").append(NL)
+          .append("=".repeat(60)).append(NL).append(NL);
+
+        String output = sb.toString();
+        print(output);
+        return output;
     }
 }
-

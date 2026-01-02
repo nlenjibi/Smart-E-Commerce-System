@@ -1,16 +1,16 @@
 package com.smartecommerce.performance;
 
-import com.smartcommerce.model.Product;
-import com.smartcommerce.service.ProductService;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.service.ProductService;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import static com.smartcommerce.utils.AppUtils.println;
+import static com.smartecommerce.utils.AppUtils.println;
 
 /**
  * PerformanceReport generates comprehensive performance analysis reports
@@ -20,61 +20,57 @@ public class PerformanceReport {
     private static final String REPORT_FILE = "performance_report.txt";
 
     /**
-     * Generate and save performance report
+     * Generate and save performance report, returning the report content.
      */
-    public static void generateReport(ProductService productService) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(REPORT_FILE))) {
-            writer.println("=".repeat(80));
-            writer.println("SMART E-COMMERCE SYSTEM - PERFORMANCE ANALYSIS REPORT");
-            writer.println("Generated: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            writer.println("=".repeat(80));
-            writer.println();
+    public static String generateReport(ProductService productService) {
+        final String NL = System.lineSeparator();
+        StringBuilder sb = new StringBuilder();
 
-            // Test 1: Cache Performance
-            writer.println("TEST 1: CACHE PERFORMANCE");
-            writer.println("-".repeat(80));
-            testCachePerformance(writer, productService);
-            writer.println();
+        sb.append("=".repeat(80)).append(NL)
+          .append("SMART E-COMMERCE SYSTEM - PERFORMANCE ANALYSIS REPORT").append(NL)
+          .append("Generated: ").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append(NL)
+          .append("=".repeat(80)).append(NL).append(NL);
 
-            // Test 2: Search Performance
-            writer.println("TEST 2: SEARCH PERFORMANCE");
-            writer.println("-".repeat(80));
-            testSearchPerformance(writer, productService);
-            writer.println();
+        sb.append("TEST 1: CACHE PERFORMANCE").append(NL)
+          .append("-".repeat(80)).append(NL);
+        testCachePerformance(sb, productService);
+        sb.append(NL);
 
-            // Test 3: Sorting Performance
-            writer.println("TEST 3: SORTING ALGORITHMS COMPARISON");
-            writer.println("-".repeat(80));
-            testSortingPerformance(writer, productService);
-            writer.println();
+        sb.append("TEST 2: SEARCH PERFORMANCE").append(NL)
+          .append("-".repeat(80)).append(NL);
+        testSearchPerformance(sb, productService);
+        sb.append(NL);
 
-            // Test 4: Query Statistics
-            writer.println("TEST 4: DATABASE QUERY STATISTICS");
-            writer.println("-".repeat(80));
-            QueryTimer.getAllStats().forEach((query, stats) -> {
-                writer.println(query + ": " + stats);
-            });
-            writer.println();
+        sb.append("TEST 3: SORTING ALGORITHMS COMPARISON").append(NL)
+          .append("-".repeat(80)).append(NL);
+        testSortingPerformance(sb, productService);
+        sb.append(NL);
 
-            // Cache Statistics
-            writer.println("CACHE STATISTICS");
-            writer.println("-".repeat(80));
-            writer.println(productService.getCacheStats());
-            writer.println();
+        sb.append("TEST 4: DATABASE QUERY STATISTICS").append(NL)
+          .append("-".repeat(80)).append(NL);
+        QueryTimer.getAllStats().forEach((query, stats) -> sb.append(query).append(": ").append(stats).append(NL));
+        sb.append(NL);
 
-            writer.println("=".repeat(80));
-            writer.println("END OF REPORT");
-            writer.println("=".repeat(80));
+        sb.append("CACHE STATISTICS").append(NL)
+          .append("-".repeat(80)).append(NL)
+          .append(productService.getCacheStats()).append(NL).append(NL)
+          .append("=".repeat(80)).append(NL)
+          .append("END OF REPORT").append(NL)
+          .append("=".repeat(80)).append(NL);
 
+        String report = sb.toString();
+        try {
+            Files.writeString(Path.of(REPORT_FILE), report);
             System.out.println("Performance report generated: " + REPORT_FILE);
         } catch (IOException e) {
             System.err.println("Error generating report: " + e.getMessage());
             e.printStackTrace();
         }
+        return report;
     }
 
-    private static void testCachePerformance(PrintWriter writer, ProductService productService) {
-        writer.println("Testing product retrieval with and without cache...");
+    private static void testCachePerformance(StringBuilder sb, ProductService productService) {
+        sb.append("Testing product retrieval with and without cache...").append(System.lineSeparator());
 
         // First access (database)
         long start1 = System.nanoTime();
@@ -88,13 +84,13 @@ public class PerformanceReport {
 
         double improvement = ((double) (time1 - time2) / time1) * 100;
 
-        writer.println("First access (DB):    " + String.format("%.3f ms", time1 / 1_000_000.0));
-        writer.println("Second access (Cache): " + String.format("%.3f ms", time2 / 1_000_000.0));
-        writer.println("Performance improvement: " + String.format("%.2f%%", improvement));
+        sb.append("First access (DB):    ").append(String.format("%.3f ms", time1 / 1_000_000.0)).append(System.lineSeparator());
+        sb.append("Second access (Cache): ").append(String.format("%.3f ms", time2 / 1_000_000.0)).append(System.lineSeparator());
+        sb.append("Performance improvement: ").append(String.format("%.2f%%", improvement)).append(System.lineSeparator());
     }
 
-    private static void testSearchPerformance(PrintWriter writer, ProductService productService) {
-        writer.println("Testing search performance...");
+    private static void testSearchPerformance(StringBuilder sb, ProductService productService) {
+        sb.append("Testing search performance...").append(System.lineSeparator());
 
         String searchTerm = "laptop";
 
@@ -108,14 +104,15 @@ public class PerformanceReport {
         List<Product> results2 = productService.searchProducts(searchTerm);
         long time2 = System.nanoTime() - start2;
 
-        writer.println("First search (DB):     " + String.format("%.3f ms", time1 / 1_000_000.0));
-        writer.println("Second search (Cache): " + String.format("%.3f ms", time2 / 1_000_000.0));
-        writer.println("Results found: " + results1.size());
+        sb.append("First search (DB):     ").append(String.format("%.3f ms", time1 / 1_000_000.0)).append(System.lineSeparator());
+        sb.append("Second search (Cache): ").append(String.format("%.3f ms", time2 / 1_000_000.0)).append(System.lineSeparator());
+        sb.append("Results found: ").append(results1.size()).append(System.lineSeparator());
     }
 
-    private static void testSortingPerformance(PrintWriter writer, ProductService productService) {
+    private static void testSortingPerformance(StringBuilder sb, ProductService productService) {
         List<Product> products = productService.getAllProducts();
-        writer.println("Testing sorting algorithms with " + products.size() + " products...");
+        sb.append("Testing sorting algorithms with " + products.size() + " products...")
+          .append(System.lineSeparator());
 
         // QuickSort by name
         long start1 = System.nanoTime();
@@ -127,8 +124,8 @@ public class PerformanceReport {
         productService.sortProductsByPrice(products, true);
         long time2 = System.nanoTime() - start2;
 
-        writer.println("QuickSort (by name):  " + String.format("%.3f ms", time1 / 1_000_000.0));
-        writer.println("MergeSort (by price): " + String.format("%.3f ms", time2 / 1_000_000.0));
+        sb.append("QuickSort (by name):  ").append(String.format("%.3f ms", time1 / 1_000_000.0)).append(System.lineSeparator());
+        sb.append("MergeSort (by price): ").append(String.format("%.3f ms", time2 / 1_000_000.0)).append(System.lineSeparator());
     }
 
     /**

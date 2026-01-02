@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smartecommerce.controllers.CartController" prefWidth="900" prefHeight="600" styleClass="cart-root" stylesheets="@../../styles/common.css,@../../styles/cart.css">
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="cart-navbar">
+            <padding>
+                <Insets top="12" right="20" bottom="12" left="20" />
+            </padding>
+            <Button text="← Home" fx:id="btnHome" styleClass="btn-home" />
+            <Label text="Shopping Cart" styleClass="cart-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblItemCount" text="0 items" styleClass="item-count-label" />
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="cart-scroll-pane">
+            <content>
+                <HBox spacing="24">
+                    <padding>
+                        <Insets top="24" right="24" bottom="24" left="24" />
+                    </padding>
+
+                    <!-- Cart Items Section -->
+                    <VBox spacing="16" minWidth="500">
+                        <HBox.hgrow>ALWAYS</HBox.hgrow>
+                        <VBox.vgrow>ALWAYS</VBox.vgrow>
+
+                        <Label text="Cart Items" styleClass="section-title" />
+
+                        <!-- Dynamic Cart Items Container -->
+                        <VBox fx:id="cartItemsContainer" spacing="12" styleClass="cart-items">
+                            <!-- Cart items will be added dynamically -->
+                        </VBox>
+
+                        <!-- Empty Cart Message -->
+                        <VBox fx:id="emptyCartMessage" alignment="CENTER" spacing="12" styleClass="empty-cart" visible="false" managed="false">
+                            <Label text="🛒" styleClass="empty-cart-icon" />
+                            <Label text="Your cart is empty" styleClass="empty-cart-message" />
+                            <Button text="Continue Shopping" fx:id="btnContinueShopping" styleClass="btn-primary" />
+                        </VBox>
+                    </VBox>
+
+                    <!-- Order Summary Section -->
+                    <VBox spacing="16" prefWidth="340" styleClass="cart-summary">
+                        <Label text="Order Summary" styleClass="summary-title" />
+
+                        <VBox spacing="12">
+                            <!-- Subtotal -->
+                            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="summary-row">
+                                <Label text="Subtotal:" styleClass="summary-label" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="lblSubtotal" text="0.00" styleClass="summary-value" />
+                            </HBox>
+
+                            <!-- Tax -->
+                            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="summary-row">
+                                <Label text="Tax (10%):" styleClass="summary-label" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="lblTax" text="0.00" styleClass="summary-value" />
+                            </HBox>
+
+                            <Separator />
+
+                            <!-- Total -->
+                            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="summary-row">
+                                <Label text="Total:" styleClass="total-label" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="lblTotal" text="0.00" styleClass="total-value" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox spacing="10">
+                            <VBox.vgrow>ALWAYS</VBox.vgrow>
+                            <Region VBox.vgrow="ALWAYS" />
+                            <Button text="Proceed to Checkout" fx:id="btnCheckout" styleClass="checkout-button" maxWidth="Infinity" />
+                            <Button text="Clear Cart" fx:id="btnClearCart" styleClass="btn-danger" maxWidth="Infinity" />
+                        </VBox>
+                    </VBox>
+                </HBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

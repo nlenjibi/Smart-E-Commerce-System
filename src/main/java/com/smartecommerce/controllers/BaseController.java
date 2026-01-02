@@ -1,7 +1,7 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.utils.AsyncTaskManager;
-import com.smartcommerce.utils.UIUtils;
+import com.smartecommerce.utils.AsyncTaskManager;
+import com.smartecommerce.utils.UIUtils;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import org.slf4j.Logger;

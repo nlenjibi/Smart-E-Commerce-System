@@ -1,10 +1,10 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.dao.UserDAO;
-import com.smartcommerce.model.User;
-import com.smartcommerce.utils.SecurityUtils;
-import com.smartcommerce.utils.UIUtils;
-import com.smartcommerce.utils.ValidationUtil;
+import com.smartecommerce.dao.UserDAO;
+import com.smartecommerce.models.User;
+import com.smartecommerce.utils.SecurityUtils;
+import com.smartecommerce.utils.UIUtils;
+import com.smartecommerce.utils.ValidationUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

@@ -1,12 +1,12 @@
 package com.smartecommerce.app;
 
-import com.smartcommerce.model.User;
-import com.smartcommerce.utils.SecurityUtils;
+import com.smartecommerce.models.User;
+import com.smartecommerce.utils.SecurityUtils;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-import static com.smartcommerce.utils.AppUtils.println;
+import static com.smartecommerce.utils.AppUtils.println;
 
 /**
  * SessionManager handles user sessions with security features

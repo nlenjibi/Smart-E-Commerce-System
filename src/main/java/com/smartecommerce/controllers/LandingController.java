@@ -1,13 +1,13 @@
 package com.smartecommerce.controllers;
 
-import com.smartcommerce.app.SessionManager;
-import com.smartcommerce.dao.CategoryDAO;
-import com.smartcommerce.model.Category;
-import com.smartcommerce.model.Product;
-import com.smartcommerce.model.User;
-import com.smartcommerce.service.CartService;
-import com.smartcommerce.service.ProductService;
-import com.smartcommerce.service.ViewedProductsTracker;
+import com.smartecommerce.app.SessionManager;
+import com.smartecommerce.dao.CategoryDAO;
+import com.smartecommerce.models.Category;
+import com.smartecommerce.models.Product;
+import com.smartecommerce.models.User;
+import com.smartecommerce.service.CartService;
+import com.smartecommerce.service.ProductService;
+import com.smartecommerce.service.ViewedProductsTracker;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -227,11 +227,11 @@ public class LandingController extends BaseController {
             String viewTitle;
 
             if ("ADMIN".equalsIgnoreCase(role)) {
-                viewPath = "/com/smartcommerce/ui/views/admin/dashboard.fxml";
+                viewPath = "/smartecommerce/ui/views/admin/dashboard.fxml";
                 viewTitle = "Smart E-Commerce System - Admin Dashboard";
                 LOGGER.info("Returning admin user to dashboard: " + currentUser.getUsername());
             } else {
-                viewPath = "/com/smartcommerce/ui/views/custormer/customer_dashboard.fxml";
+                viewPath = "/smartecommerce/ui/views/custormer/customer_dashboard.fxml";
                 viewTitle = "Smart E-Commerce System - My Dashboard";
                 LOGGER.info("Returning customer user to dashboard: " + currentUser.getUsername());
             }
@@ -847,7 +847,7 @@ public class LandingController extends BaseController {
             }
 
             // Load cart view
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/custormer/cart.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/custormer/cart.fxml"));
             Parent cartView = loader.load();
 
             Stage stage = (Stage) btnCart.getScene().getWindow();
@@ -869,7 +869,7 @@ public class LandingController extends BaseController {
             LOGGER.info("Opening login view");
 
             // Load login view
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smartcommerce/ui/views/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/login.fxml"));
             Parent loginView = loader.load();
 
             Stage stage = (Stage) btnLogin.getScene().getWindow();
