@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.smartcommerce.controllers.AnaliticsController"
+            prefHeight="600.0"
+            prefWidth="1200.0"
+            styleClass="admin-container"
+            stylesheets="@../../styles/common.css, @../../styles/analitics.css">
+
+    <!-- Top: Header -->
+    <top>
+        <VBox spacing="3" styleClass="admin-header" minHeight="0">
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+            <Label text="📊 Analytics &amp; Performance Dashboard" styleClass="admin-title">
+                <font>
+                    <Font name="System Bold" size="20"/>
+                </font>
+            </Label>
+            <Label text="Comprehensive business intelligence, performance monitoring, and reporting tools"
+                   styleClass="admin-subtitle" style="-fx-font-size: 11px;"/>
+        </VBox>
+    </top>
+    <!-- 📚 Sidebar Navigation -->
+    <left>
+        <fx:include source="sidebar.fxml" />
+    </left>
+    <!-- Center: Main Content -->
+    <center>
+        <SplitPane dividerPositions="0.3" styleClass="admin-split-pane" style="-fx-padding: 10;">
+
+            <!-- Left: Control Panel with ScrollPane -->
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                        style="-fx-background-color: transparent;">
+                <VBox spacing="15" styleClass="admin-control-panel" minHeight="0">
+                    <padding>
+                        <Insets top="5" right="5" bottom="5" left="5"/>
+                    </padding>
+
+                    <Label text="Performance Tools" styleClass="admin-section-title"/>
+
+                    <!-- Algorithm Demonstrations -->
+                    <VBox spacing="8" minHeight="0">
+                        <Label text="Algorithm Demonstrations" styleClass="admin-section-label"/>
+                        <Button fx:id="btnCacheDemo" text="Cache Demo" onAction="#handleCacheDemo"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-demo-button"/>
+                        <Button fx:id="btnSearchDemo" text="Search Demo" onAction="#handleSearchDemo"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-demo-button"/>
+                        <Button fx:id="btnSortDemo" text="Sort Demo" onAction="#handleSortDemo"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-demo-button"/>
+                    </VBox>
+
+                    <Separator styleClass="admin-separator"/>
+
+                    <!-- Reports & Analytics -->
+                    <VBox spacing="8" minHeight="0">
+                        <Label text="Reports &amp; Analytics" styleClass="admin-section-label"/>
+                        <Button fx:id="btnGenerateReport" text="📊 Performance Report" onAction="#handleGenerateReport"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-report-button"/>
+                        <Button fx:id="btnSalesReport" text="💰 Sales Summary" onAction="#handleSalesReport"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-report-button"/>
+                        <Button fx:id="btnDashboardAnalytics" text="📈 Dashboard Analytics" onAction="#handleDashboardAnalytics"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-report-button"/>
+                        <Button fx:id="btnInventoryReport" text="📦 Inventory Report" onAction="#handleInventoryReport"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-report-button"/>
+                        <Button fx:id="btnUserAnalytics" text="👥 User Analytics" onAction="#handleUserAnalytics"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-report-button"/>
+                        <Button fx:id="btnPerformanceMetrics" text="⚡ Performance Metrics" onAction="#handlePerformanceMetrics"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-report-button"/>
+                        <Button fx:id="btnQueryStats" text="🔍 Query Statistics" onAction="#handleQueryStats"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-report-button"/>
+                    </VBox>
+
+                    <Separator styleClass="admin-separator"/>
+
+                    <!-- Cache Management -->
+                    <VBox spacing="8" minHeight="0">
+                        <Label text="Cache Management" styleClass="admin-section-label"/>
+                        <Button fx:id="btnClearCache" text="Clear Cache" onAction="#handleClearCache"
+                                maxWidth="1.7976931348623157E308" styleClass="admin-clear-button"/>
+                    </VBox>
+
+                    <!-- Info Box -->
+                    <VBox spacing="5" styleClass="admin-info-box" minHeight="0">
+                        <padding>
+                            <Insets top="8" right="8" bottom="8" left="8"/>
+                        </padding>
+                        <Label text="Performance Metrics" styleClass="admin-info-title"/>
+                        <Label text="• Cache Hit Ratio: N/A" styleClass="admin-metric-label"/>
+                        <Label text="• Avg Query Time: N/A" styleClass="admin-metric-label"/>
+                        <Label text="• Total Queries: N/A" styleClass="admin-metric-label"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+
+            <!-- Right: Console with proper constraints -->
+            <VBox spacing="10" VBox.vgrow="ALWAYS" minHeight="0">
+                <Label text="Console Output" styleClass="admin-console-title"/>
+                <TextArea fx:id="txtConsole" editable="false" wrapText="true"
+                          VBox.vgrow="ALWAYS" styleClass="admin-console"
+                          minHeight="100"/>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <!-- Bottom: Status Bar -->
+    <bottom>
+        <HBox styleClass="admin-status-bar" spacing="20" minHeight="25" prefHeight="30">
+            <padding>
+                <Insets top="5" right="15" bottom="5" left="15"/>
+            </padding>
+            <Label fx:id="lblStatus" text="Admin panel ready" styleClass="admin-status-label"
+                   style="-fx-font-size: 11px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Database: Connected" styleClass="admin-status-connected"
+                   style="-fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
