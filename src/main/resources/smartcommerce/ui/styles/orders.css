@@ -1,0 +1,172 @@
+/* Orders Page Styles */
+
+/* Root container */
+.orders-container {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Header */
+.orders-header {
+    -fx-background-color: #34495e;
+    -fx-padding: 20px;
+}
+
+.orders-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Filter section */
+.orders-filter-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
+
+.orders-filter-combo {
+    -fx-pref-width: 150px;
+    -fx-pref-height: 32px;
+}
+
+.orders-refresh-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.orders-refresh-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+/* Table */
+.orders-table {
+    -fx-background-color: white;
+}
+
+.orders-table-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.orders-table .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.orders-table .table-row-cell:selected {
+    -fx-background-color: #3498db;
+}
+
+/* Actions panel */
+.orders-actions-panel {
+    -fx-padding: 15px;
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5px;
+}
+
+.orders-actions-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.orders-status-combo {
+    -fx-pref-width: 150px;
+    -fx-pref-height: 32px;
+}
+
+.orders-update-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-min-width: 120px;
+    -fx-pref-height: 35px;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.orders-update-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Statistics panel */
+.orders-stats-panel {
+    -fx-padding: 15px;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 5px;
+}
+
+.orders-stat-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.orders-stat-value {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.orders-stat-total {
+    -fx-text-fill: #2c3e50;
+}
+
+.orders-stat-pending {
+    -fx-text-fill: #f39c12;
+}
+
+.orders-stat-confirmed {
+    -fx-text-fill: #3498db;
+}
+
+.orders-stat-delivered {
+    -fx-text-fill: #27ae60;
+}
+
+/* Status bar */
+.orders-status-bar {
+    -fx-background-color: #ecf0f1;
+    -fx-padding: 10px;
+}
+
+.orders-status-label {
+    -fx-font-size: 12px;
+}
+
+/* Order status badges */
+.order-status-pending {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px 8px;
+}
+
+.order-status-confirmed {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px 8px;
+}
+
+.order-status-shipped {
+    -fx-background-color: #9b59b6;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px 8px;
+}
+
+.order-status-delivered {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px 8px;
+}
+
+.order-status-cancelled {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px 8px;
+}
+

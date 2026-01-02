@@ -1,0 +1,180 @@
+/* Users Page Styles */
+
+/* Root container */
+.users-container {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Header */
+.users-header {
+    -fx-background-color: #e67e22;
+    -fx-padding: 20px;
+}
+
+.users-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.users-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #ecf0f1;
+}
+
+/* Table */
+.users-table {
+    -fx-background-color: white;
+}
+
+.users-table-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.users-table .column-header {
+    -fx-background-color: #e67e22;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.users-table .table-row-cell:selected {
+    -fx-background-color: #f39c12;
+}
+
+.users-role-filter {
+    -fx-pref-width: 120px;
+}
+
+/* Form */
+.users-form {
+    -fx-background-color: white;
+    -fx-padding: 15px;
+}
+
+.users-form-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.users-field-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #34495e;
+}
+
+.users-text-field {
+    -fx-pref-height: 32px;
+}
+
+.users-password-field {
+    -fx-pref-height: 32px;
+}
+
+.users-role-combo {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 32px;
+}
+
+/* Buttons */
+.users-add-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.users-add-button:hover {
+    -fx-background-color: #229954;
+}
+
+.users-update-button {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.users-update-button:hover {
+    -fx-background-color: #e67e22;
+}
+
+.users-delete-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.users-delete-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.users-refresh-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.users-refresh-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+/* Statistics box */
+.users-stats-box {
+    -fx-background-color: #fff3e0;
+    -fx-padding: 10px;
+    -fx-background-radius: 5px;
+}
+
+.users-stats-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.users-stats-text {
+    -fx-font-size: 11px;
+}
+
+/* Role badges */
+.user-role-admin {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px 8px;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.user-role-customer {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px 8px;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+/* Status bar */
+.users-status-bar {
+    -fx-background-color: #ecf0f1;
+    -fx-padding: 10px;
+}
+
+.users-status-label {
+    -fx-font-size: 12px;
+}
+
+/* Validation states */
+.users-field-error {
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 1px;
+}
+
+.users-field-success {
+    -fx-border-color: #27ae60;
+    -fx-border-width: 1px;
+}
+

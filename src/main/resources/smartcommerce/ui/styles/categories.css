@@ -1,0 +1,141 @@
+/* Categories Page Styles */
+
+/* Root container */
+.categories-container {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Header */
+.categories-header {
+    -fx-background-color: #16a085;
+    -fx-padding: 20px;
+}
+
+.categories-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.categories-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #ecf0f1;
+}
+
+/* Table */
+.categories-table {
+    -fx-background-color: white;
+}
+
+.categories-table-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.categories-table .column-header {
+    -fx-background-color: #16a085;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.categories-table .table-row-cell:selected {
+    -fx-background-color: #1abc9c;
+}
+
+/* Form */
+.categories-form {
+    -fx-background-color: white;
+    -fx-padding: 15px;
+}
+
+.categories-form-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.categories-field-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #34495e;
+}
+
+.categories-text-field {
+    -fx-pref-height: 32px;
+}
+
+.categories-text-area {
+    -fx-pref-row-count: 6;
+}
+
+/* Buttons */
+.categories-add-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.categories-add-button:hover {
+    -fx-background-color: #229954;
+}
+
+.categories-update-button {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.categories-update-button:hover {
+    -fx-background-color: #e67e22;
+}
+
+.categories-delete-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.categories-delete-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.categories-refresh-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.categories-refresh-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+/* Info box */
+.categories-info-box {
+    -fx-background-color: #e8f5e9;
+    -fx-padding: 10px;
+    -fx-background-radius: 5px;
+}
+
+.categories-info-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.categories-info-text {
+    -fx-font-size: 11px;
+}
+
+/* Status bar */
+.categories-status-bar {
+    -fx-background-color: #ecf0f1;
+    -fx-padding: 10px;
+}
+
+.categories-status-label {
+    -fx-font-size: 12px;
+}
+

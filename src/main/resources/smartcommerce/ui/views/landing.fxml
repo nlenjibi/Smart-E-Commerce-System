@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smartcommerce.controllers.LandingController" prefWidth="1200" prefHeight="600" styleClass="landing-root" stylesheets="@../styles/common.css,@../styles/landing.css">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="navbar">
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12" />
+            </padding>
+            <Label text="SmartStore" styleClass="logo" />
+            <TextField promptText="Search products..." fx:id="searchField" styleClass="search-field" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Login" fx:id="btnLogin" />
+            <Button text="Dashboard" fx:id="btnDashboard" visible="false" managed="false" />
+            <Button text="Logout" fx:id="btnLogout" visible="false" managed="false" />
+            <Button text="Admin" fx:id="btnAdmin" visible="false" managed="false" />
+            <Button text="Cart (0)" fx:id="btnCart" />
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox spacing="20" fx:id="mainContent">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20" />
+                    </padding>
+                    <!-- Hero Section -->
+                    <HBox spacing="20" alignment="CENTER_LEFT" styleClass="hero">
+                        <VBox>
+                            <Label text="Welcome to SmartStore" styleClass="hero-title" />
+                            <Label text="Find the best products" styleClass="hero-subtitle" />
+                            <Button text="Shop Now" fx:id="btnShopNow" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                    </HBox>
+
+                    <!-- Categories Section -->
+                    <VBox fx:id="categoriesSection" spacing="15" styleClass="section" visible="false" managed="false">
+                        <Label text="Shop by Category" styleClass="section-title" />
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" styleClass="horizontal-scroll">
+                            <content>
+                                <HBox fx:id="categoriesContainer" spacing="15" styleClass="horizontal-container" alignment="CENTER_LEFT">
+                                    <!-- Categories loaded dynamically -->
+                                </HBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+
+                    <!-- Recently Viewed Section (Logged-in users only) -->
+                    <VBox fx:id="recentlyViewedSection" spacing="15" styleClass="section" visible="false" managed="false">
+                        <Label text="Recently Viewed" styleClass="section-title" />
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" styleClass="horizontal-scroll">
+                            <content>
+                                <HBox fx:id="recentlyViewedContainer" spacing="15" styleClass="horizontal-container" alignment="CENTER_LEFT">
+                                    <!-- Recently viewed products loaded dynamically -->
+                                </HBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+
+                    <!-- Top Purchased Section (All users) -->
+                    <VBox fx:id="topPurchasedSection" spacing="15" styleClass="section" visible="false" managed="false">
+                        <Label text="Most Popular" styleClass="section-title" />
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" styleClass="horizontal-scroll">
+                            <content>
+                                <HBox fx:id="topPurchasedContainer" spacing="15" styleClass="horizontal-container" alignment="CENTER_LEFT">
+                                    <!-- Top purchased products loaded dynamically -->
+                                </HBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+
+                    <!-- Product Grid - Dynamically populated from database -->
+                    <GridPane hgap="20" vgap="20" fx:id="productGrid" maxWidth="Infinity">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33.33" minWidth="280" hgrow="ALWAYS" />
+                            <ColumnConstraints percentWidth="33.33" minWidth="280" hgrow="ALWAYS" />
+                            <ColumnConstraints percentWidth="33.34" minWidth="280" hgrow="ALWAYS" />
+                        </columnConstraints>
+                        <!-- Products will be loaded dynamically from database with images and stock info -->
+                    </GridPane>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

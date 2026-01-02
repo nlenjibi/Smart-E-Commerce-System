@@ -1,0 +1,126 @@
+/* Login Page Styles */
+
+/* Root container */
+.login-container {
+    -fx-background-color: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+}
+
+/* Logo section */
+.login-logo {
+    -fx-font-size: 32px;
+}
+
+.login-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.login-subtitle {
+    -fx-font-size: 10px;
+    -fx-text-fill: #ecf0f1;
+}
+
+/* Login form container */
+.login-form {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+.login-form-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Form labels */
+.login-field-label {
+    -fx-font-size: 10px;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* Text fields */
+.login-text-field {
+    -fx-pref-height: 32px;
+    -fx-font-size: 12px;
+}
+
+/* Password field */
+.login-password-field {
+    -fx-pref-height: 32px;
+    -fx-font-size: 12px;
+}
+
+/* Remember me checkbox */
+.login-checkbox {
+    -fx-font-size: 10px;
+}
+
+/* Login button */
+.login-button {
+    -fx-background-color: #667eea;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 36px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: #5568d3;
+}
+
+.login-button:pressed {
+    -fx-background-color: #4557c2;
+}
+
+/* Error label */
+.login-error-label {
+    -fx-font-size: 10px;
+    -fx-text-fill: #e74c3c;
+}
+
+/* Signup link section */
+.login-signup-text {
+    -fx-font-size: 10px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.login-signup-link {
+    -fx-font-size: 10px;
+    -fx-text-fill: #667eea;
+    -fx-underline: true;
+}
+
+.login-signup-link:hover {
+    -fx-text-fill: #5568d3;
+}
+
+/* Footer */
+.login-footer {
+    -fx-padding: 8px;
+    -fx-background-color: rgba(0,0,0,0.2);
+}
+
+.login-footer-text {
+    -fx-font-size: 8px;
+    -fx-text-fill: white;
+}
+
+/* Responsive adjustments */
+.login-text-field:focused,
+.login-password-field:focused {
+    -fx-border-color: #667eea;
+    -fx-border-width: 2px;
+}
+
+/* Disabled state */
+.login-button:disabled {
+    -fx-background-color: #95a5a6;
+    -fx-opacity: 0.6;
+    -fx-cursor: default;
+}
+

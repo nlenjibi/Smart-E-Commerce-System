@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.smartcommerce.controllers.CustomerDashboardController"
+            prefWidth="1000" prefHeight="700"
+            styleClass="customer-dashboard-root"
+            stylesheets="@../../styles/common.css, @../../styles/customer_dashboard.css">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox spacing="10" styleClass="sidebar" prefWidth="220">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15" />
+            </padding>
+
+            <!-- Brand -->
+            <Label text="🛍️ E-Commerce" styleClass="brand-title">
+                <font>
+                    <Font name="System Bold" size="18"/>
+                </font>
+            </Label>
+
+            <Separator/>
+
+            <!-- Navigation Buttons -->
+            <Button fx:id="btnHome" text="🏠 Home" onAction="#handleHome" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button fx:id="btnProfile" text="👤 My Profile" onAction="#handleProfile" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button fx:id="btnOrders" text="📦 My Orders" onAction="#handleOrders" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button fx:id="btnSettings" text="⚙️ Settings" onAction="#handleSettings" maxWidth="Infinity" styleClass="nav-button"/>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <!-- Logout Button -->
+            <Button fx:id="btnLogout" text="🚪 Logout" onAction="#handleLogout" maxWidth="Infinity" styleClass="logout-button"/>
+        </VBox>
+    </left>
+
+    <!-- Top Bar -->
+    <top>
+        <HBox spacing="15" alignment="CENTER_LEFT" styleClass="top-bar">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20" />
+            </padding>
+            <Label fx:id="lblPageTitle" text="Customer Dashboard" styleClass="page-title">
+                <font>
+                    <Font name="System Bold" size="22"/>
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblUserInfo" text="Loading..." styleClass="user-info-label"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background-color: transparent;">
+            <VBox fx:id="contentArea" spacing="20">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20" />
+                </padding>
+
+                <!-- Profile Section -->
+                <VBox fx:id="profileSection" spacing="15" styleClass="content-card">
+                    <Label text="👤 Profile Information" styleClass="section-title">
+                        <font>
+                            <Font name="System Bold" size="18"/>
+                        </font>
+                    </Label>
+
+                    <Separator/>
+
+                    <GridPane hgap="15" vgap="12">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120" prefWidth="120"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <!-- Username (Read-only) -->
+                        <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label"/>
+                        <Label fx:id="lblUsername" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value"/>
+
+                        <!-- Email -->
+                        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label"/>
+                        <TextField fx:id="txtEmail" promptText="email@example.com" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <!-- Full Name -->
+                        <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="field-label"/>
+                        <TextField fx:id="txtFullName" promptText="Enter your full name" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                        <!-- Phone -->
+                        <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="field-label"/>
+                        <TextField fx:id="txtPhone" promptText="Enter phone number" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                        <!-- Address -->
+                        <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="field-label"/>
+                        <TextArea fx:id="txtAddress" promptText="Enter your address" prefRowCount="3" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                    </GridPane>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Button text="💾 Save Changes" onAction="#handleUpdateProfile" styleClass="primary-button"/>
+                        <Label fx:id="lblProfileMessage" text="" styleClass="message-label"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Password Change Section -->
+                <VBox fx:id="passwordSection" spacing="15" styleClass="content-card">
+                    <Label text="🔒 Change Password" styleClass="section-title">
+                        <font>
+                            <Font name="System Bold" size="18"/>
+                        </font>
+                    </Label>
+
+                    <Separator/>
+
+                    <GridPane hgap="15" vgap="12" maxWidth="500">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="150" prefWidth="150"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <!-- Current Password -->
+                        <Label text="Current Password:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label"/>
+                        <PasswordField fx:id="txtCurrentPassword" promptText="Enter current password" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <!-- New Password -->
+                        <Label text="New Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label"/>
+                        <PasswordField fx:id="txtNewPassword" promptText="Enter new password" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <!-- Confirm New Password -->
+                        <Label text="Confirm Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="field-label"/>
+                        <PasswordField fx:id="txtConfirmPassword" promptText="Confirm new password" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Button text="🔑 Change Password" onAction="#handleChangePassword" styleClass="primary-button"/>
+                        <Label fx:id="lblPasswordMessage" text="" styleClass="message-label"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Orders Section -->
+                <VBox fx:id="ordersSection" spacing="15" styleClass="content-card" managed="false" visible="false">
+                    <Label text="📦 My Orders" styleClass="section-title">
+                        <font>
+                            <Font name="System Bold" size="18"/>
+                        </font>
+                    </Label>
+
+                    <Separator/>
+
+                    <TableView fx:id="ordersTable" prefHeight="300">
+                        <columns>
+                            <TableColumn fx:id="colOrderId" text="Order ID" prefWidth="100"/>
+                            <TableColumn fx:id="colOrderDate" text="Date" prefWidth="150"/>
+                            <TableColumn fx:id="colTotalAmount" text="Total Amount" prefWidth="120"/>
+                            <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+
+                    <Label fx:id="lblOrdersMessage" text="" styleClass="message-label"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

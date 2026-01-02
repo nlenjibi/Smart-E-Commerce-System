@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.smartcommerce.controllers.ProductsController"
+            prefHeight="600.0"
+            prefWidth="1200.0"
+            stylesheets="@../../styles/common.css, @../../styles/products.css"
+            style="-fx-background-color: #f8f9fa;">
+
+    <!-- Left: Sidebar -->
+    <left>
+        <fx:include source="sidebar.fxml" />
+    </left>
+
+    <!-- Center: Content -->
+    <center>
+        <VBox fx:id="contentContainer" spacing="20" style="-fx-padding: 30; -fx-background-color: #f8f9fa;">
+
+            <!-- Header -->
+            <Label text="Product Management"
+                   style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #1f2937;"/>
+
+            <!-- Quick Actions Card -->
+            <VBox spacing="20" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 40; -fx-background-radius: 12;">
+                <Label text="📦" style="-fx-font-size: 64px;"/>
+                <Label text="Product Management" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                <Label text="Manage your product catalog" style="-fx-font-size: 14px; -fx-text-fill: #6b7280;"/>
+
+                <HBox spacing="15">
+                    <Button text="View Products" onAction="#handleViewProducts" styleClass="btn-primary"/>
+                    <Button text="Add New Product" onAction="#handleAddProduct" styleClass="btn-success"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Bottom statistics -->
+    <bottom>
+        <HBox spacing="20" style="-fx-padding: 20; -fx-background-color: #f8f9fa;">
+            <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-border-color: #e5e7eb; -fx-border-radius: 12;" HBox.hgrow="ALWAYS">
+                <Label text="Total Products" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;"/>
+                <Label fx:id="totalProductsLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2563eb;"/>
+            </VBox>
+
+            <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-border-color: #e5e7eb; -fx-border-radius: 12;" HBox.hgrow="ALWAYS">
+                <Label text="In Stock" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;"/>
+                <Label fx:id="inStockLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #10b981;"/>
+            </VBox>
+
+            <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-border-color: #e5e7eb; -fx-border-radius: 12;" HBox.hgrow="ALWAYS">
+                <Label text="Low Stock" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;"/>
+                <Label fx:id="lowStockLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #f59e0b;"/>
+            </VBox>
+
+            <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-border-color: #e5e7eb; -fx-border-radius: 12;" HBox.hgrow="ALWAYS">
+                <Label text="Out of Stock" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;"/>
+                <Label fx:id="outOfStockLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #dc2626;"/>
+            </VBox>
+        </HBox>
+    </bottom>
+
+</BorderPane>

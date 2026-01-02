@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.smartcommerce.controllers.LoginController"
+            prefHeight="380.0" prefWidth="380.0"
+            styleClass="login-container"
+            stylesheets="@../styles/common.css,@../styles/login.css">
+
+    <center>
+        <VBox spacing="15" alignment="CENTER" styleClass="padding-medium">
+
+            <!-- Logo/Title Section -->
+            <VBox spacing="5" alignment="CENTER">
+                <Label styleClass="login-logo" text="🛒"/>
+                <Label styleClass="login-title" text="Smart E-Commerce">
+                    <font>
+                        <Font name="System Bold" size="20"/>
+                    </font>
+                </Label>
+                <Label styleClass="login-subtitle" text="Database Management System">
+                    <font>
+                        <Font size="10"/>
+                    </font>
+                </Label>
+            </VBox>
+
+            <!-- Login Form -->
+            <VBox spacing="10" styleClass="login-form">
+
+                <Label styleClass="login-form-title" text="Login to Continue"/>
+
+                <VBox spacing="5">
+                    <Label styleClass="login-field-label" text="Username or Email"/>
+                    <TextField fx:id="txtUsername" promptText="Enter username"
+                               styleClass="login-text-field"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label styleClass="login-field-label" text="Password"/>
+                    <PasswordField fx:id="txtPassword" promptText="Enter password"
+                                   styleClass="login-password-field"/>
+                </VBox>
+
+                <CheckBox fx:id="chkRememberMe" text="Remember me" styleClass="login-checkbox"/>
+
+                <Button fx:id="btnLogin" text="Login" onAction="#handleLogin"
+                        maxWidth="Infinity" styleClass="login-button"/>
+
+                <Label fx:id="lblError" text="" wrapText="true"
+                       styleClass="login-error-label" visible="false"/>
+
+                <Separator/>
+
+                <HBox spacing="5" alignment="CENTER">
+                    <Label styleClass="login-signup-text" text="Don't have an account?"/>
+                    <Hyperlink fx:id="linkSignup" text="Sign Up" onAction="#handleSignup"
+                               styleClass="login-signup-link"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="login-footer">
+            <Label styleClass="login-footer-text" text="© 2024 Smart E-Commerce System | Secure Login"/>
+        </HBox>
+    </bottom>
+</BorderPane>
+

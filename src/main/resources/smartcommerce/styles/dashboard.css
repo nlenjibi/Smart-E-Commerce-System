@@ -1,0 +1,316 @@
+/* ==================== DASHBOARD STYLES ==================== */
+
+/* Dashboard Container */
+.admin-dashboard {
+    -fx-background-color: #f8f9fa;
+}
+
+.main-content-area {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Top Bar */
+.top-bar {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.admin-name {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+}
+
+.admin-role {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Content Scroll Pane */
+.content-scroll {
+    -fx-background-color: transparent;
+}
+
+.content-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.dashboard-content {
+    -fx-background-color: transparent;
+}
+
+/* ==================== SUMMARY CARDS ==================== */
+
+.summary-cards {
+    -fx-spacing: 20;
+}
+
+.summary-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+.summary-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 3);
+    -fx-translate-y: -2px;
+}
+
+.card-icon {
+    -fx-font-size: 36px;
+    -fx-text-fill: #3b82f6;
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7280;
+    -fx-font-weight: 500;
+}
+
+.card-value {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.card-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #10b981;
+    -fx-font-style: italic;
+}
+
+/* ==================== CHARTS SECTION ==================== */
+
+.charts-section {
+    -fx-spacing: 20;
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+    -fx-padding: 10 0 0 0;
+}
+
+.chart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+    -fx-padding: 0 0 10 0;
+}
+
+.chart-pane {
+    -fx-background-color: transparent;
+}
+
+/* Chart styling */
+.chart {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.chart-plot-background {
+    -fx-background-color: #fafafa;
+}
+
+.chart-legend {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-padding: 8px;
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+}
+
+.axis-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+}
+
+.axis-tick-mark {
+    -fx-stroke: #e5e7eb;
+}
+
+/* Line Chart */
+.chart-line-symbol {
+    -fx-background-color: #3b82f6;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.chart-series-line {
+    -fx-stroke: #3b82f6;
+    -fx-stroke-width: 3px;
+}
+
+/* Pie Chart */
+.chart-pie {
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+}
+
+.default-color0.chart-pie { -fx-pie-color: #3b82f6; }
+.default-color1.chart-pie { -fx-pie-color: #10b981; }
+.default-color2.chart-pie { -fx-pie-color: #f59e0b; }
+.default-color3.chart-pie { -fx-pie-color: #ef4444; }
+.default-color4.chart-pie { -fx-pie-color: #8b5cf6; }
+.default-color5.chart-pie { -fx-pie-color: #ec4899; }
+
+/* Bar Chart */
+.default-color0.chart-bar { -fx-bar-fill: #3b82f6; }
+.default-color1.chart-bar { -fx-bar-fill: #10b981; }
+.default-color2.chart-bar { -fx-bar-fill: #f59e0b; }
+.default-color3.chart-bar { -fx-bar-fill: #ef4444; }
+.default-color4.chart-bar { -fx-bar-fill: #8b5cf6; }
+
+/* Area Chart */
+.chart-series-area-fill {
+    -fx-fill: rgba(59, 130, 246, 0.2);
+}
+
+.chart-series-area-line {
+    -fx-stroke: #3b82f6;
+    -fx-stroke-width: 2px;
+}
+
+/* ==================== QUICK INSIGHT BOX ==================== */
+
+.insight-box {
+    -fx-background-color: linear-gradient(to right, #3b82f6, #2563eb);
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 2);
+}
+
+.insight-icon {
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+}
+
+.insight-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-font-weight: 500;
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+
+@media (max-width: 1200px) {
+    .summary-card {
+        -fx-pref-width: 200px;
+    }
+
+    .card-value {
+        -fx-font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        -fx-font-size: 20px;
+    }
+
+    .card-value {
+        -fx-font-size: 24px;
+    }
+
+    .chart-title {
+        -fx-font-size: 14px;
+    }
+}
+
+/* ==================== DARK MODE SUPPORT ==================== */
+
+.dark-mode .admin-dashboard {
+    -fx-background-color: #1f2937;
+}
+
+.dark-mode .main-content-area {
+    -fx-background-color: #1f2937;
+}
+
+.dark-mode .top-bar {
+    -fx-background-color: #111827;
+    -fx-border-color: #374151;
+}
+
+.dark-mode .page-title {
+    -fx-text-fill: #f9fafb;
+}
+
+.dark-mode .admin-name {
+    -fx-text-fill: #e5e7eb;
+}
+
+.dark-mode .admin-role {
+    -fx-text-fill: #9ca3af;
+}
+
+.dark-mode .summary-card {
+    -fx-background-color: #111827;
+}
+
+.dark-mode .card-title {
+    -fx-text-fill: #9ca3af;
+}
+
+.dark-mode .card-value {
+    -fx-text-fill: #f9fafb;
+}
+
+.dark-mode .chart-container {
+    -fx-background-color: #111827;
+}
+
+.dark-mode .chart-title {
+    -fx-text-fill: #e5e7eb;
+}
+
+.dark-mode .chart-plot-background {
+    -fx-background-color: #1f2937;
+}
+
+.dark-mode .section-title {
+    -fx-text-fill: #f9fafb;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        -fx-translate-y: 10px;
+    }
+    to {
+        opacity: 1;
+        -fx-translate-y: 0;
+    }
+}
+
+.summary-card {
+    -fx-animation: fadeIn 0.3s ease-out;
+}
+
+.chart-container {
+    -fx-animation: fadeIn 0.5s ease-out;
+}
+

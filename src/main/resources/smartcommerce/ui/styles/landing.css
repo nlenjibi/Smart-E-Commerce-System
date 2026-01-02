@@ -1,0 +1,231 @@
+/* Landing Page Stylesheet */
+/* Optimized styles for the public-facing landing page */
+
+/* Root Container */
+.landing-root {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Navigation Bar */
+.navbar {
+    -fx-background-color: white;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #e0e0e0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);
+}
+
+/* Logo/Brand */
+.logo {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2563eb;
+}
+
+/* Search Field */
+.search-field {
+    -fx-pref-width: 300px;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 8 16;
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: transparent;
+}
+
+.search-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #2563eb;
+    -fx-border-width: 1px;
+}
+
+/* Hero Section */
+.hero {
+    -fx-background-color: linear-gradient(to right, #2563eb 0%, #7c3aed 100%);
+    -fx-background-radius: 12px;
+    -fx-padding: 50 40;
+    -fx-min-height: 200px;
+}
+
+.hero-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.hero-subtitle {
+    -fx-font-size: 18px;
+    -fx-text-fill: rgba(255,255,255,0.9);
+    -fx-padding: 10 0 20 0;
+}
+
+/* Product Card */
+.product-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+    -fx-cursor: hand;
+    -fx-min-height: 320px;
+    -fx-max-width: Infinity;
+    -fx-pref-width: Infinity;
+}
+
+.product-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 4);
+    -fx-translate-y: -2px;
+}
+
+.product-image {
+    -fx-background-color: #f3f4f6;
+    -fx-background-radius: 8px;
+    -fx-min-height: 150px;
+    -fx-max-height: 150px;
+    -fx-pref-height: 150px;
+    -fx-max-width: Infinity;
+    -fx-alignment: center;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+/* Product Name */
+.product-name {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #1f2937;
+    -fx-wrap-text: true;
+    -fx-min-height: 40px;
+}
+
+/* Price Label */
+.price {
+    -fx-font-weight: bold;
+    -fx-text-fill: #059669;
+    -fx-font-size: 16px;
+    -fx-padding: 4 0;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-padding: 10 16;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
+}
+
+.add-to-cart-btn:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.add-to-cart-btn:pressed {
+    -fx-background-color: #1e40af;
+}
+
+/* Buttons */
+.landing-root .button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-font-weight: 600;
+}
+
+.landing-root .button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.landing-root .button:pressed {
+    -fx-background-color: #1e40af;
+}
+
+/* Utility Classes */
+.section-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+    -fx-padding: 0 0 12 0;
+}
+
+/* Section Container */
+.section {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2);
+}
+
+/* Horizontal Scroll Container */
+.horizontal-scroll {
+    -fx-background-color: transparent;
+}
+
+.horizontal-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+
+.horizontal-container {
+    -fx-padding: 5;
+}
+
+/* Category Card */
+.category-card {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 10px;
+    -fx-padding: 15;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+}
+
+.category-card:hover {
+    -fx-background-color: #e3f2fd;
+    -fx-border-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.2), 10, 0, 0, 2);
+    -fx-translate-y: -2px;
+}
+
+/* View All Button */
+.view-all-btn {
+    -fx-background-color: #6b7280;
+    -fx-text-fill: white;
+    -fx-padding: 12 20;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
+}
+
+.view-all-btn:hover {
+    -fx-background-color: #4b5563;
+}
+
+/* Compact Product Card (for horizontal sections) */
+.compact-product-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+    -fx-cursor: hand;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.compact-product-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0, 0, 4);
+    -fx-translate-y: -2px;
+    -fx-border-color: #2563eb;
+}
+
+/* Section Titles */
+.section .section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}

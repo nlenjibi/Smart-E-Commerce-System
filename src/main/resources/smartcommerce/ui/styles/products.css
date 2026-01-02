@@ -1,0 +1,168 @@
+/* Products Page Styles */
+
+/* Root container */
+.products-container {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Header */
+.products-header {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 20px;
+}
+
+.products-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Search section */
+.products-search-field {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 35px;
+    -fx-font-size: 13px;
+}
+
+.products-search-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.products-search-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.products-refresh-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.products-refresh-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+/* Table */
+.products-table {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1px;
+}
+
+.products-table .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.products-table .table-row-cell:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.products-table .table-row-cell:hover {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Form section */
+.products-form {
+    -fx-background-color: white;
+    -fx-padding: 15px;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1px;
+}
+
+.products-form-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.products-field-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #34495e;
+    -fx-font-weight: bold;
+}
+
+.products-text-field {
+    -fx-pref-height: 32px;
+    -fx-font-size: 13px;
+}
+
+.products-text-area {
+    -fx-font-size: 13px;
+}
+
+.products-combobox {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 32px;
+}
+
+/* Buttons */
+.products-add-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.products-add-button:hover {
+    -fx-background-color: #229954;
+}
+
+.products-update-button {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.products-update-button:hover {
+    -fx-background-color: #e67e22;
+}
+
+.products-delete-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-min-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-cursor: hand;
+}
+
+.products-delete-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* Status bar */
+.products-status-bar {
+    -fx-background-color: #ecf0f1;
+    -fx-padding: 10px;
+}
+
+.products-status-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Split pane */
+.products-split-pane {
+    -fx-background-color: transparent;
+}
+
+.products-split-pane .split-pane-divider {
+    -fx-background-color: #bdc3c7;
+    -fx-padding: 0 1 0 1;
+}
+

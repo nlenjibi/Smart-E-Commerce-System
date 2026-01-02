@@ -1,0 +1,76 @@
+/* Customer Dashboard Stylesheet */
+/* Optimized styles for customer area */
+
+/* Root Container */
+.customer-dashboard-root {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Sidebar */
+.customer-sidebar {
+    -fx-background-color: white;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #e5e7eb;
+    -fx-min-width: 220px;
+}
+
+/* Page Title */
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+/* Profile Card */
+.profile-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 2);
+}
+
+.profile-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7280;
+    -fx-padding: 4 0;
+}
+
+.profile-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #1f2937;
+}
+
+/* Orders Table */
+.orders-table {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+}
+
+.orders-table .column-header {
+    -fx-background-color: #f9fafb;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+}
+
+.orders-table .table-row-cell:hover {
+    -fx-background-color: #f3f4f6;
+}
+
+/* Buttons */
+.customer-dashboard-root .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4b5563;
+    -fx-padding: 12 16;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+}
+
+.customer-dashboard-root .button:hover {
+    -fx-background-color: #f3f4f6;
+}
+
+.customer-dashboard-root .button:focused {
+    -fx-background-color: #e5e7eb;
+}
+
