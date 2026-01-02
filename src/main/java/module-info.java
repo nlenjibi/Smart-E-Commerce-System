@@ -6,5 +6,4 @@ module com.ecommerce.smartecommercesystem {
     requires org.kordamp.bootstrapfx.core;
 
     opens com.ecommerce.smartecommercesystem to javafx.fxml;
-    exports com.ecommerce.smartecommercesystem;
 }
