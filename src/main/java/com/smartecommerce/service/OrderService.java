@@ -92,8 +92,5 @@ public class OrderService {
         });
         return sorted;
     }
-//    public static void main(String[] args){
-//        OrderService orderService = new OrderService();
-//       println(  orderService.getAllOrders());
-//    }
+
 }

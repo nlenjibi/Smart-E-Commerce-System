@@ -1,34 +1,34 @@
 ================================================================================
 SMART E-COMMERCE SYSTEM - PERFORMANCE ANALYSIS REPORT
-Generated: 2026-01-02 12:36:41
+Generated: 2026-01-16 11:49:20
 ================================================================================
 
 TEST 1: CACHE PERFORMANCE
 --------------------------------------------------------------------------------
 Testing product retrieval with and without cache...
-First access (DB):    4.862 ms
-Second access (Cache): 0.077 ms
-Performance improvement: 98.42%
+First access (DB):    0.039 ms
+Second access (Cache): 0.015 ms
+Performance improvement: 62.53%
 
 TEST 2: SEARCH PERFORMANCE
 --------------------------------------------------------------------------------
 Testing search performance...
-First search (DB):     9.986 ms
-Second search (Cache): 0.065 ms
+First search (DB):     0.075 ms
+Second search (Cache): 0.047 ms
 Results found: 2
 
 TEST 3: SORTING ALGORITHMS COMPARISON
 --------------------------------------------------------------------------------
-Testing sorting algorithms with 175 products...
-QuickSort (by name):  0.420 ms
-MergeSort (by price): 0.187 ms
+Testing sorting algorithms with 176 products...
+QuickSort (by name):  0.807 ms
+MergeSort (by price): 0.660 ms
 
 TEST 4: DATABASE QUERY STATISTICS
 --------------------------------------------------------------------------------
 
 CACHE STATISTICS
 --------------------------------------------------------------------------------
-Product Cache: 175 items, Search Cache: 1 queries
+Product Cache: 176 items, Search Cache: 1 queries
 
 ================================================================================
 END OF REPORT

@@ -896,26 +896,7 @@ public class LandingController extends BaseController {
         alert.showAndWait();
     }
 
-    /**
-     * Public getter for search field
-     */
-    public TextField getSearchField() {
-        return searchField;
-    }
 
-    /**
-     * Public getter for main content container
-     */
-    public VBox getMainContent() {
-        return mainContent;
-    }
-
-    /**
-     * Refresh products - reload from database
-     */
-    public void refreshProducts() {
-        loadProductsFromDatabase();
-    }
 
     /**
      * Load Categories Section - Display max 6 categories with filtering capability

@@ -161,20 +161,7 @@ public class SessionManager {
         getInstance().destroySession();
     }
 
-    public String getSessionId() {
-        return sessionId;
-    }
 
-    public LocalDateTime getSessionStartTime() {
-        return sessionStartTime;
-    }
 
-    public LocalDateTime getLastActivityTime() {
-        return lastActivityTime;
-    }
-
-    public static long getSessionTimeoutMinutes() {
-        return SESSION_TIMEOUT_MINUTES;
-    }
 }
 

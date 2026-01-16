@@ -241,29 +241,8 @@ public class ReportService {
         return report;
     }
 
-    /**
-     * Generate inventory alert report
-     */
-    public Map<String, Object> generateInventoryAlerts() {
-        Map<String, Object> alerts = new HashMap<>();
 
-        try {
-            List<Product> criticalStock = productDAO.getLowStockProducts(5);
-            List<Product> lowStock = productDAO.getLowStockProducts(20);
-            List<Product> outOfStock = productDAO.getOutOfStockProducts();
 
-            alerts.put("critical", criticalStock);
-            alerts.put("low", lowStock);
-            alerts.put("outOfStock", outOfStock);
-            alerts.put("criticalCount", criticalStock.size());
-            alerts.put("lowCount", lowStock.size());
-            alerts.put("outOfStockCount", outOfStock.size());
 
-        } catch (Exception e) {
-            alerts.put("error", "Failed to generate inventory alerts: " + e.getMessage());
-            printE("Error in generateInventoryAlerts: " + e.getMessage());
-        }
 
-        return alerts;
-    }
 }

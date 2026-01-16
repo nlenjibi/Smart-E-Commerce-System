@@ -54,8 +54,8 @@ public class CartController {
     @FXML private Button btnHome;
     @FXML private Button btnContinueShopping;
 
-    private CartService cartService;
-    private OrderService orderService;
+    private final CartService cartService;
+    private final OrderService orderService;
 
     // Cache UI components to avoid recreating on every update
     private final Map<Integer, VBox> cartItemCards = new HashMap<>();
@@ -507,26 +507,7 @@ public class CartController {
         return false;
     }
 
-    /**
-     * Legacy increment method (kept for backwards compatibility)
-     */
-    private void incrementQuantity(CartItem cartItem) {
-        incrementQuantityOptimized(cartItem);
-    }
 
-    /**
-     * Legacy decrement method (kept for backwards compatibility)
-     */
-    private void decrementQuantity(CartItem cartItem) {
-        decrementQuantityOptimized(cartItem);
-    }
-
-    /**
-     * Legacy remove method (kept for backwards compatibility)
-     */
-    private void removeItem(CartItem cartItem) {
-        removeItemOptimized(cartItem);
-    }
 
     /**
      * Update order summary (subtotal, tax, total)

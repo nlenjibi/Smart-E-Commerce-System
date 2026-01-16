@@ -175,15 +175,7 @@ public class SidebarController {
         }
     }
 
-    /**
-     * Auto-collapse sidebar on mobile/small screens after navigation
-     * This improves UX by showing content immediately on mobile devices
-     * NOTE: Not needed with full scene changes
-     */
-    private void collapseSidebarOnMobile() {
-        // Method kept for compatibility but not used with full scene changes
-        LOGGER.info("collapseSidebarOnMobile called (not needed with full scene changes)");
-    }
+
 
     @FXML
     private void handleLogout() {

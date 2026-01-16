@@ -102,31 +102,8 @@ public class ViewedProductsTracker {
         return products;
     }
 
-    /**
-     * Clear viewed products history for a user
-     * @param userId The user ID
-     */
-    public static synchronized void clearHistory(int userId) {
-        userViewedProducts.remove(userId);
-        LOGGER.info("Cleared viewed products history for user " + userId);
-    }
 
-    /**
-     * Clear all viewed products (for session cleanup)
-     */
-    public static synchronized void clearAllHistory() {
-        userViewedProducts.clear();
-        LOGGER.info("Cleared all viewed products history");
-    }
 
-    /**
-     * Get count of viewed products for a user
-     * @param userId The user ID
-     * @return Number of viewed products
-     */
-    public static synchronized int getViewedCount(int userId) {
-        LinkedHashSet<Integer> viewedProducts = userViewedProducts.get(userId);
-        return viewedProducts != null ? viewedProducts.size() : 0;
-    }
+
 }
 

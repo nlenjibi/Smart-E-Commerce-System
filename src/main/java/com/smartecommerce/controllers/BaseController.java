@@ -245,14 +245,5 @@ public abstract class BaseController {
         logger.info("Success: {}", message);
     }
 
-    /**
-     * Show warning message
-     *
-     * @param message Warning message
-     */
-    protected void showWarning(String message) {
-        UIUtils.showWarning(statusLabel, message);
-        logger.warn("Warning: {}", message);
-    }
 }
 

@@ -23,15 +23,13 @@ public class TopbarController {
     private static final Logger LOGGER = Logger.getLogger(TopbarController.class.getName());
 
     @FXML public Button btnToggleSidebar;
-    @FXML public ImageView avatarImage;
-    @FXML public MenuButton profileMenu;
+
     @FXML public Label notifBadge;
     @FXML public ToggleButton themeToggle;
     @FXML public Label pageTitle;
     @FXML public Label adminNameLabel;
     @FXML public Label adminRoleLabel;
-    @FXML public TextField searchField;
-    @FXML public MenuItem menuLogout;
+
 
     private DashboardController dashboardController;
 
@@ -85,44 +83,6 @@ public class TopbarController {
         }
     }
 
-    @FXML
-    private void handleToggleSidebar() {
-        LOGGER.info("Toggling sidebar");
-        if (dashboardController != null) {
-            dashboardController.toggleSidebar();
-        }
-    }
 
-    @FXML
-    private void handleThemeToggle() {
-        LOGGER.info("Toggling theme");
-        if (dashboardController != null) {
-            dashboardController.toggleTheme();
-        }
-        // Update button text
-        if (themeToggle != null) {
-            themeToggle.setText(themeToggle.isSelected() ? "Light" : "Dark");
-        }
-    }
-
-    @FXML
-    private void handleLogout() {
-        LOGGER.info("Logging out from topbar");
-        try {
-            // Clear session
-            SessionManager.getInstance().destroySession();
-
-            // Redirect to login
-            Stage stage = (Stage) btnToggleSidebar.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/smartecommerce/ui/views/login.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Smart E-Commerce System - Login");
-            stage.show();
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Failed to load Login Page", e);
-        }
-    }
 }
 

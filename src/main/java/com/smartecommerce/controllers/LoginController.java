@@ -22,7 +22,6 @@ public class LoginController {
 
     @FXML private TextField txtUsername;
     @FXML private PasswordField txtPassword;
-    @FXML private CheckBox chkRememberMe;
     @FXML private Button btnLogin;
     @FXML private Hyperlink linkSignup;
     @FXML private Label lblError;

@@ -37,9 +37,7 @@ public class CustomerDashboardController {
 
     // Navigation Buttons
     @FXML private Button btnHome;
-    @FXML private Button btnProfile;
-    @FXML private Button btnOrders;
-    @FXML private Button btnSettings;
+
     @FXML private Button btnLogout;
 
     // Top Bar

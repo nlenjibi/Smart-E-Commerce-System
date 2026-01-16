@@ -118,73 +118,7 @@ public class CategoryDAO {
         return affectedRows != null && affectedRows > 0;
     }
 
-    /**
-     * Search categories by name (partial match, case-insensitive)
-     */
-    public List<Category> searchByName(String searchTerm) {
-        List<Category> categories = new ArrayList<>();
-        String sql = "SELECT * FROM Categories WHERE LOWER(category_name) LIKE LOWER(?) ORDER BY category_name";
-        QueryResult queryResult = executePreparedQuery(sql, "%" + searchTerm + "%");
 
-        if (queryResult.hasError()) {
-            printE("Error searching categories: " + queryResult.getError());
-            return categories;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows == null) {
-            return categories;
-        }
-
-        for (Map<String, Object> row : rows) {
-            Category mappedCategory = mapRow(row);
-            if (mappedCategory != null) {
-                categories.add(mappedCategory);
-            }
-        }
-        return categories;
-    }
-
-    /**
-     * Check if a category name already exists
-     */
-    public boolean categoryNameExists(String categoryName) {
-        String sql = "SELECT COUNT(*) as count FROM Categories WHERE LOWER(category_name) = LOWER(?)";
-        QueryResult queryResult = executePreparedQuery(sql, categoryName);
-
-        if (queryResult.hasError()) {
-            printE("Error checking category name: " + queryResult.getError());
-            return false;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows != null && !rows.isEmpty()) {
-            Object countObj = rows.get(0).get("count");
-            int count = asInt(countObj);
-            return count > 0;
-        }
-        return false;
-    }
-
-    /**
-     * Get total count of categories
-     */
-    public int getCategoryCount() {
-        String sql = "SELECT COUNT(*) as count FROM Categories";
-        QueryResult queryResult = executePreparedQuery(sql);
-
-        if (queryResult.hasError()) {
-            printE("Error counting categories: " + queryResult.getError());
-            return 0;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows != null && !rows.isEmpty()) {
-            Object countObj = rows.get(0).get("count");
-            return asInt(countObj);
-        }
-        return 0;
-    }
 
     /**
      * Map the first row from a query result to a Category

@@ -241,47 +241,7 @@ public class UserDAO {
         return users;
     }
 
-    /**
-     * Check if username exists
-     */
-    public boolean usernameExists(String username) {
-        String sql = "SELECT COUNT(*) as count FROM Users WHERE LOWER(username) = LOWER(?)";
-        QueryResult queryResult = executePreparedQuery(sql, username);
 
-        if (queryResult.hasError()) {
-            printE("Error checking username: " + queryResult.getError());
-            return false;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows != null && !rows.isEmpty()) {
-            Object countObj = rows.get(0).get("count");
-            int count = asInt(countObj);
-            return count > 0;
-        }
-        return false;
-    }
-
-    /**
-     * Check if email exists
-     */
-    public boolean emailExists(String email) {
-        String sql = "SELECT COUNT(*) as count FROM Users WHERE LOWER(email) = LOWER(?)";
-        QueryResult queryResult = executePreparedQuery(sql, email);
-
-        if (queryResult.hasError()) {
-            printE("Error checking email: " + queryResult.getError());
-            return false;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows != null && !rows.isEmpty()) {
-            Object countObj = rows.get(0).get("count");
-            int count = asInt(countObj);
-            return count > 0;
-        }
-        return false;
-    }
 
     /**
      * Get total count of users
@@ -303,25 +263,7 @@ public class UserDAO {
         return 0;
     }
 
-    /**
-     * Get count of users by role
-     */
-    public int getCountByRole(String role) {
-        String sql = "SELECT COUNT(*) as count FROM Users WHERE role = ?";
-        QueryResult queryResult = executePreparedQuery(sql, role);
 
-        if (queryResult.hasError()) {
-            printE("Error counting users by role: " + queryResult.getError());
-            return 0;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows != null && !rows.isEmpty()) {
-            Object countObj = rows.get(0).get("count");
-            return asInt(countObj);
-        }
-        return 0;
-    }
 
     /**
      * Get user registration statistics by date range

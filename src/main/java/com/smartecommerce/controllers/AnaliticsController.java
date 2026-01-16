@@ -23,17 +23,7 @@ import static java.lang.IO.print;
 public class AnaliticsController {
 
     @FXML private TextArea txtConsole;
-    @FXML private Button btnCacheDemo;
-    @FXML private Button btnSearchDemo;
-    @FXML private Button btnSortDemo;
-    @FXML private Button btnGenerateReport;
-    @FXML private Button btnQueryStats;
-    @FXML private Button btnClearCache;
-    @FXML private Button btnSalesReport;
-    @FXML private Button btnDashboardAnalytics;
-    @FXML private Button btnInventoryReport;
-    @FXML private Button btnUserAnalytics;
-    @FXML private Button btnPerformanceMetrics;
+
     @FXML private Label lblStatus;
 
     private final ProductService productService;

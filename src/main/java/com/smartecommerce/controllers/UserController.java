@@ -33,10 +33,10 @@ public class UserController {
     @FXML private PasswordField txtPassword;
     @FXML private ComboBox<String> cmbRole;
     @FXML private ComboBox<String> cmbRoleFilter;
-    @FXML private Button btnAdd;
+
     @FXML private Button btnUpdate;
     @FXML private Button btnDelete;
-    @FXML private Button btnRefresh;
+
     @FXML private Label lblStatus;
 
     private final UserDAO userDAO;

@@ -319,35 +319,7 @@ public class ProductDAO {
         return java.math.BigDecimal.ZERO;
     }
 
-    /**
-     * Get top N most expensive products
-     * Analytics function
-     */
-    public List<Product> getTopExpensiveProducts(int limit) {
-        List<Product> products = new ArrayList<>();
-        String sql = "SELECT p.*, c.category_name FROM Products p " +
-                     "JOIN Categories c ON p.category_id = c.category_id " +
-                     "ORDER BY p.price DESC LIMIT ?";
-        QueryResult queryResult = executePreparedQuery(sql, limit);
 
-        if (queryResult.hasError()) {
-            printE("Error getting top expensive products: " + queryResult.getError());
-            return products;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows == null) {
-            return products;
-        }
-
-        for (Map<String, Object> row : rows) {
-            Product mappedProduct = mapRow(row);
-            if (mappedProduct != null) {
-                products.add(mappedProduct);
-            }
-        }
-        return products;
-    }
 
     /**
      * Get recently added products

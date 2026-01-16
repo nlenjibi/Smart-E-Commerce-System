@@ -25,7 +25,7 @@ public class SignupController {
     @FXML private ComboBox<String> cmbRole;
     @FXML private CheckBox chkTerms;
     @FXML private Button btnSignup;
-    @FXML private Hyperlink linkLogin;
+    
     @FXML private Label lblMessage;
     @FXML private Label lblUsernameError;
     @FXML private Label lblEmailError;

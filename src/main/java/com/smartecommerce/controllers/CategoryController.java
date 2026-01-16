@@ -6,7 +6,7 @@ import com.smartecommerce.utils.UIUtils;
 import com.smartecommerce.utils.ValidationUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,21 +27,19 @@ public class CategoryController {
 
     @FXML private TextField txtCategoryName;
     @FXML private TextArea txtDescription;
-    @FXML private Button btnAdd;
+
     @FXML private Button btnUpdate;
     @FXML private Button btnDelete;
-    @FXML private Button btnRefresh;
+
     @FXML private Label lblStatus;
 
     private CategoryDAO categoryDAO;
     private ObservableList<Category> categoryList;
-    private FilteredList<Category> filteredList;
     private Category selectedCategory;
 
     public CategoryController() {
         this.categoryDAO = new CategoryDAO();
         this.categoryList = FXCollections.observableArrayList();
-        this.filteredList = new FilteredList<>(categoryList, p -> true);
     }
 
     @FXML

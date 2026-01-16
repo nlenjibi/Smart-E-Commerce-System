@@ -159,26 +159,6 @@ public class OrderDAO {
         return statusCounts;
     }
 
-    /**
-     * Get revenue by date range
-     * Analytics function
-     */
-    public java.math.BigDecimal getRevenueByDateRange(String startDate, String endDate) {
-        String sql = "SELECT ISNULL(SUM(total_amount), 0) as revenue FROM Orders " +
-                     "WHERE order_date BETWEEN ? AND ?";
-        QueryResult queryResult = executePreparedQuery(sql, startDate, endDate);
-
-        if (queryResult.hasError()) {
-            printE("Error calculating revenue by date range: " + queryResult.getError());
-            return java.math.BigDecimal.ZERO;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows != null && !rows.isEmpty()) {
-            return asBigDecimal(rows.get(0).get("revenue"));
-        }
-        return java.math.BigDecimal.ZERO;
-    }
 
     /**
      * Get average order value

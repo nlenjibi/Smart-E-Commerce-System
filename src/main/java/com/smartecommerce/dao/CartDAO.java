@@ -64,29 +64,6 @@ public class CartDAO {
         return cart;
     }
 
-    /**
-     * Find cart by user ID
-     */
-    public Cart findByUserId(int userId) {
-        String sql = "SELECT * FROM Carts WHERE user_id = ?";
-        QueryResult queryResult = executePreparedQuery(sql, userId);
-
-        if (queryResult.hasError()) {
-            printE("Error finding cart by user: " + queryResult.getError());
-            return null;
-        }
-
-        List<Map<String, Object>> rows = queryResult.getResultSet();
-        if (rows.isEmpty()) {
-            return null;
-        }
-
-        Map<String, Object> row = rows.get(0);
-        Cart cart = mapToCart(row);
-        // Load cart items
-        cart.setItems(findCartItems(cart.getCartId()));
-        return cart;
-    }
 
     /**
      * Update cart (mainly timestamps)
@@ -125,45 +102,7 @@ public class CartDAO {
         return affectedRows != null && affectedRows > 0;
     }
 
-    /**
-     * Add item to cart
-     */
-    public boolean addCartItem(int cartId, CartItem item) {
-        // Check if item already exists
-        String checkSql = "SELECT quantity FROM CartItems WHERE cart_id = ? AND product_id = ?";
-        QueryResult checkResult = executePreparedQuery(checkSql, cartId, item.getProduct().getProductId());
 
-        if (checkResult.hasError()) {
-            printE("Error checking cart item: " + checkResult.getError());
-            return false;
-        }
-
-        if (!checkResult.getResultSet().isEmpty()) {
-            // Update existing item
-            int existingQuantity = asInt(checkResult.getResultSet().get(0).get("quantity"));
-            int newQuantity = existingQuantity + item.getQuantity();
-            String updateSql = "UPDATE CartItems SET quantity = ? WHERE cart_id = ? AND product_id = ?";
-            QueryResult updateResult = executePreparedQuery(updateSql, newQuantity, cartId, item.getProduct().getProductId());
-
-            if (updateResult.hasError()) {
-                printE("Error updating cart item: " + updateResult.getError());
-                return false;
-            }
-        } else {
-            // Insert new item
-            String insertSql = "INSERT INTO CartItems (cart_id, product_id, quantity) VALUES (?, ?, ?)";
-            QueryResult insertResult = executePreparedQuery(insertSql, cartId, item.getProduct().getProductId(), item.getQuantity());
-
-            if (insertResult.hasError()) {
-                printE("Error inserting cart item: " + insertResult.getError());
-                return false;
-            }
-        }
-
-        // Update cart timestamp
-        updateCartTimestamp(cartId);
-        return true;
-    }
 
     /**
      * Remove item from cart
@@ -182,47 +121,9 @@ public class CartDAO {
         return true;
     }
 
-    /**
-     * Update item quantity in cart
-     */
-    public boolean updateCartItemQuantity(int cartId, int productId, int quantity) {
-        if (quantity <= 0) {
-            return removeCartItem(cartId, productId);
-        }
 
-        String sql = "UPDATE CartItems SET quantity = ? WHERE cart_id = ? AND product_id = ?";
-        QueryResult updateResult = executePreparedQuery(sql, quantity, cartId, productId);
 
-        if (updateResult.hasError()) {
-            printE("Error updating cart item quantity: " + updateResult.getError());
-            return false;
-        }
 
-        // Update cart timestamp
-        updateCartTimestamp(cartId);
-        return true;
-    }
-
-    /**
-     * Clear all items from cart
-     */
-    public boolean clearCart(int cartId) {
-        String sql = "DELETE FROM CartItems WHERE cart_id = ?";
-        QueryResult deleteResult = executePreparedQuery(sql, cartId);
-
-        if (deleteResult.hasError()) {
-            printE("Error clearing cart: " + deleteResult.getError());
-            return false;
-        }
-
-        // Update cart timestamp
-        updateCartTimestamp(cartId);
-        return true;
-    }
-
-    /**
-     * Get cart items for a cart
-     */
     private List<CartItem> findCartItems(int cartId) {
         String sql = "SELECT ci.*, p.product_name, p.description, p.price, p.image_url, p.category_id " +
                 "FROM CartItems ci " +

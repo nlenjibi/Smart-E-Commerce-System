@@ -8,7 +8,6 @@ public class Inventory {
     private int productId;
     private int quantityAvailable;
     private int reorderLevel;
-    private int reservedQuantity;
 
     // Constructors
     public Inventory() {
